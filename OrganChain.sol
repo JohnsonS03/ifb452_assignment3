@@ -1,25 +1,26 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract ExamScoreContract {
-    address public singleStudent;
-    uint256 public examScore;
+contract MedicalDptContract {
+    address public doner;
+    string private name;
+    
 
-    modifier onlyStudent() {
-        require(msg.sender == singleStudent, "Only student can execute this");
+    modifier onlyDoner() {
+        require(msg.sender == doner, "Only doner can execute this");
         _;
     }
 
-    event ExamScoreUpdated(uint256 newScore);
+    event AgreeOnContract(bool agree);
 
-    constructor(address initialStudent) {
-        require(initialStudent != address(0), "Invalid initial student address");
-        singleStudent = initialStudent;
-        examScore = 0;
+    constructor(address theDoner) {
+        require(theDoner != address(0), "Invalid doner address");
+        doner = theDoner;
+        name = "";
     }
 
-    function updateScore(uint256 newScore) external onlyStudent {
-        examScore = newScore;
-        emit ExamScoreUpdated(newScore);
+    function donerAgreement(address newDoner_) external onlyDoner view returns (bool agree)  {  
+        agree = true;
+        emit AgreeOnContract(agree);
     }
 }
