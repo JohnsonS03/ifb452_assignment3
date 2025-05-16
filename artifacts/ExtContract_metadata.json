@@ -1,10 +1,312 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_doner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_specialist",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_healthcare",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_doctor",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_organId",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "_donerName",
+						"type": "string"
+					}
+				],
+				"name": "agreeToConsent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_organId",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "_patient",
+						"type": "string"
+					}
+				],
+				"name": "assignOrganToPatient",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "doctors_and_practitioner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "doner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_organId",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "_condition",
+						"type": "string"
+					}
+				],
+				"name": "evaluateOrganHealth",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_organId",
+						"type": "int256"
+					}
+				],
+				"name": "getOrganDetails",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "int256",
+								"name": "organId",
+								"type": "int256"
+							},
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "dateDonated",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ExtContract.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "healthcare_department",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"name": "organs",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "organId",
+						"type": "int256"
+					},
+					{
+						"internalType": "string",
+						"name": "donerName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateDonated",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "condition",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "donatedTo",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "isConsented",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isEvaluated",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isStored",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAssigned",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "reception",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "specialist_and_surgeons",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_organId",
+						"type": "int256"
+					}
+				],
+				"name": "storeOrgan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -18,9 +320,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"External.sol": "ExtContract"
+			"Internal.sol": "ExtContract"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -32,12 +334,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"External.sol": {
-			"keccak256": "0x556a605fc35a17689fe81f90d98d5b647dc72315c71bf8bfecd3fb3fbdd72557",
+		"Internal.sol": {
+			"keccak256": "0x47e6ea1c5652fd4a4196ebf947c90fd8963d57739c8d05031d2a242a37615bc5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://703a56ca0f0b5a2851409d8485aa8d8d68b61459a21524905a3a9c07c54f92cb",
-				"dweb:/ipfs/QmcfPyPCaLPkrddMmVYNbqEswgkXjSaK8fFAURoqUBB8on"
+				"bzz-raw://41ff69380bf6856a40cdc309abcb26b51abe207a53e655c5acc55e463ca1b574",
+				"dweb:/ipfs/QmWx9keNsYhqRRfqjBQxiLdGJppdcXQNQm3cNUBjfR6dLA"
 			]
 		}
 	},

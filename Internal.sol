@@ -1,15 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Internal {
+contract ExtContract {
+ 
     address public owner;
-    mapping(address => int) public stakeholders; //categorise stakeholders into different access level
-    mapping(uint256 => OrganId) public organsToStore;
-    mapping(uint256 => OrganId) private organsInStore; // Store organ data by ID
+    address public doner;
+    address public specialist_and_surgeons;
+    address public healthcare_department;
+    address public doctors_and_practitioner;
+    address public reception;
 
     // Structure to define the structure of a quality contract
     struct OrganId {
-        uint256 organId;
+        int organId;
         string donerName;
         string dateDonated;
         string condition;
@@ -20,18 +23,7 @@ contract Internal {
         bool isAssigned;
     }
 
-    event organIdCreated(uint256 organId, string donerName, string dateDonated, string condition, string donatedTo);
-    event organIdStored(uint256 organId, string donerName, string dateDonated, string condition, string donatedTo);
-    
-    constructor() {
-        owner = msg.sender;
-        stakeholders[owner] = 1;
-    }
-
-    modifier onlyHealthcare() {
-        require(stakeholders[msg.sender] == 1, "Only healthcare department can perform this action.");
-        _;
-    }
+    mapping(int => OrganId) public organs; // Store organ data by ID
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only owner can perform this action.");
@@ -48,20 +40,34 @@ contract Internal {
         _;
     }
 
+    modifier onlyHealthcare() {
+        require(msg.sender == healthcare_department, "Only healthcare department can store the organ.");
+        _;
+    }
+
     modifier onlyDoctor() {
         require(msg.sender == doctors_and_practitioner, "Only a doctor can assign the organ.");
         _;
     }
+
+    constructor(address _doner,address _specialist, address _healthcare, address _doctor, address _owner) {
+        doner = _doner;
+        specialist_and_surgeons = _specialist;
+        healthcare_department = _healthcare;
+        doctors_and_practitioner = _doctor;
+        owner = _owner;
+    }
+
     // Function 1: Donor agrees to consent
-    function agreeToConsent(int _organId, string memory _donerName) public onlyDonor {
+    function agreeToConsent(int _organId, string memory _donerName)public onlyDonor {
         OrganId storage organ = organs[_organId];
         organ.donerName = _donerName;
         organ.isConsented = true;
-        organ.dateDonated = block.timestamp.toString(); // Record the date
+       
     }
 
     // Function 2: Specialist evaluates the organ health
-    function evaluateOrganHealth(int _organId, string memory _condition) public onlySpecialist {
+    function evaluateOrganHealth(int _organId, string memory _condition) public onlySpecialist  {
         OrganId storage organ = organs[_organId];
         require(organ.isConsented, "Organ donation has not been consented.");
         organ.condition = _condition;
@@ -69,13 +75,10 @@ contract Internal {
     }
 
     // Function 3: Healthcare department stores the organ
-    function storeOrgan(uint256 _organId) public onlyHealthcare {
-        require(organsToStore.isEvaluated, "Organ health has not been evaluated.");
-
-        organsInStore[_organId] = organsToStore[_organId];
-        delete organsToStore[_organId];
-
-        emit organIdStored(_organId, organsInStore[_organId].donerName, organsInStore[_organId].dateDonated, organsInStore[_organId].condition, organsInStore[_organId].donatedTo);
+    function storeOrgan(int _organId) public onlyHealthcare {
+        OrganId storage organ = organs[_organId];
+        require(organ.isEvaluated, "Organ health has not been evaluated.");
+        organ.isStored = true;
     }
 
     // Function 4: Doctor assigns organ to a patient
