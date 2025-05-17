@@ -18,9 +18,4 @@ contract MedicalDptContract {
         doner = theDoner;
         name = "";
     }
-
-    function donerAgreement(address newDoner_) external onlyDoner view returns (bool agree)  {  
-        agree = true;
-        emit AgreeOnContract(agree);
-    }
 }
