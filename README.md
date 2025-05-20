@@ -15,7 +15,7 @@ Then, to install the lite server, run the command below:<br/>
 `npm install -g lite-server`<br/>
 ![image](https://github.com/user-attachments/assets/8d70d3dd-72ea-4d2c-9c29-6667d7ab9b1d)<br/>
 
-The console should have response like this:<br/>
+The console should have response like this, or looks similar:<br/>
 
     added 50 packages in 4.321s 
     npm notice
