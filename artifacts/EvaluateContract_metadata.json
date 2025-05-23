@@ -1,0 +1,106 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_specialist",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenAddr",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "organId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "condition",
+						"type": "string"
+					}
+				],
+				"name": "evaluate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "specialist",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenContract",
+				"outputs": [
+					{
+						"internalType": "contract ITokenCreateEval",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"EvaluateContract.sol": "EvaluateContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"EvaluateContract.sol": {
+			"keccak256": "0xfa5bfc7cf7b0849ddd89b7ec8098c372259f9ed4122c46486ba54834e31c2ed7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8dfe5e3af18d0f4cef7eb95867e3864fbf9ad05ed895cb35ed563a9e0119a55f",
+				"dweb:/ipfs/QmXRhgHFAR9NPe2ECiKuqedsPkqJW36j3ZT6DSEMY9fMzW"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,106 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_doctor",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenAddr",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "organId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "patient",
+						"type": "string"
+					}
+				],
+				"name": "assign",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "doctor",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenContract",
+				"outputs": [
+					{
+						"internalType": "contract ITokenCreateEval",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"AssignContract.sol": "AssignContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"AssignContract.sol": {
+			"keccak256": "0x6301d300140a1f7a03b5669b665df52ee4a6d38d4c7f74f5252e164ebb302b03",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://76fcc80b28df42f2b645cb22688f119b86bc08b7b75d40b725224c0c5e2b17e6",
+				"dweb:/ipfs/QmPzKuR5sAdaPfNmu4pzFMhw3NrBAbfgVtg9V3ohHri8Ps"
+			]
+		}
+	},
+	"version": 1
+}

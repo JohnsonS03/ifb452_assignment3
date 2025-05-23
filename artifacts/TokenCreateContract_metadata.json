@@ -1,0 +1,258 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_donerName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_donationDate",
+						"type": "uint256"
+					}
+				],
+				"name": "createOrgan",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					}
+				],
+				"name": "getOrgan",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenCreateContract.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "organCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "organs",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "donerName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dateDonated",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "condition",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "donatedTo",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "isConsented",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isEvaluated",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isStored",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAssigned",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenCreateContract.OrganId",
+						"name": "_organ",
+						"type": "tuple"
+					}
+				],
+				"name": "updateOrgan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"OrganCreateContract.sol": "TokenCreateContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"OrganCreateContract.sol": {
+			"keccak256": "0xfc296eb4586a23e3dcac1f57e02fd38d695bf5fb3d72c25417e0582a0fdb3146",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://90ce7dfafd537f918530863f36df15d44b60bbcfe875fc6f89fe213a074c1299",
+				"dweb:/ipfs/QmYjx5Rh25teU94Y9TpS4Y9SvujBnw6HMfvjiawb8hQfyU"
+			]
+		}
+	},
+	"version": 1
+}

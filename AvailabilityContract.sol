@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-interface ITokenCreateEval {
+interface ITokenCreate {
     struct OrganId {
         string donerName;
         uint256 dateDonated;
@@ -19,11 +19,11 @@ interface ITokenCreateEval {
 
 contract AvailableContract {
     address public healthcare;
-    ITokenCreateEval public tokenContract;
+    ITokenCreate public tokenContract;
 
     constructor(address _healthcare, address _tokenAddr) {
         healthcare = _healthcare;
-        tokenContract = ITokenCreateEval(_tokenAddr);
+        tokenContract = ITokenCreate (_tokenAddr);
     }
 
     modifier onlyHealthcare() {
@@ -32,7 +32,7 @@ contract AvailableContract {
     }
 
     function store(uint256 organId) public onlyHealthcare {
-        ITokenCreateEval.OrganId memory o = tokenContract.getOrgan(organId);
+        ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
         require(o.isEvaluated, "Not evaluated");
         o.isStored = true;
         tokenContract.updateOrgan(organId, o);
