@@ -12,9 +12,8 @@ contract ExtContract {
 
     // Structure to define the structure of a quality contract
     struct OrganId {
-        int organId;
         string donerName;
-        string dateDonated;
+        uint256 dateDonated;
         string condition;
         string donatedTo;
         bool isConsented;
@@ -23,12 +22,8 @@ contract ExtContract {
         bool isAssigned;
     }
 
-    mapping(int => OrganId) public organs; // Store organ data by ID
-
-    modifier onlyOwner() {
-        require(msg.sender == owner, "Only owner can perform this action.");
-        _;
-    }
+    mapping(uint256 => OrganId) public organs; // Store organ data by ID
+    uint256 public organCount;
 
     modifier onlyDonor() {
         require(msg.sender == doner, "Only the donor can consent.");
@@ -50,24 +45,22 @@ contract ExtContract {
         _;
     }
 
-    constructor(address _doner,address _specialist, address _healthcare, address _doctor, address _owner) {
+    constructor(address _doner,address _specialist, address _healthcare, address _doctor) {
         doner = _doner;
         specialist_and_surgeons = _specialist;
         healthcare_department = _healthcare;
         doctors_and_practitioner = _doctor;
-        owner = _owner;
+        owner = msg.sender;
     }
 
     // Function 1: Donor agrees to consent
-    function agreeToConsent(int _organId, string memory _donerName)public onlyDonor {
-        OrganId storage organ = organs[_organId];
-        organ.donerName = _donerName;
-        organ.isConsented = true;
-       
+    function agreeToConsent(string memory _donerName, uint256 _donationDate)public onlyDonor {
+        organCount++;
+        organs[organCount] = OrganId(_donerName, _donationDate, "To be evaluated", "To be assigned", true, false, false, false);
     }
 
     // Function 2: Specialist evaluates the organ health
-    function evaluateOrganHealth(int _organId, string memory _condition) public onlySpecialist  {
+    function evaluateOrganHealth(uint256 _organId, string memory _condition) public onlySpecialist  {
         OrganId storage organ = organs[_organId];
         require(organ.isConsented, "Organ donation has not been consented.");
         organ.condition = _condition;

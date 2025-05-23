@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "theDoner",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "agree",
+						"type": "bool"
+					}
+				],
+				"name": "AgreeOnContract",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "doner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"OrganChain.sol": "MedicalDptContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"OrganChain.sol": {
+			"keccak256": "0xbe264d484fc4c2c3bcd57b8f8d0d6aecb191f5282752160291def3d04ea44b4f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://84a7f20274113d8fa00dba33967e357613d9c41210f4a28406ee9a65bc7592c5",
+				"dweb:/ipfs/Qmf5LMmmJewGMtroKogdtTgngd7HPsvrMUc9pB4aLmumpY"
+			]
+		}
+	},
+	"version": 1
+}

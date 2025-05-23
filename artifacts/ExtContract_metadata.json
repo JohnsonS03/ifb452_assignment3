@@ -26,11 +26,6 @@
 						"internalType": "address",
 						"name": "_doctor",
 						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "_owner",
-						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -335,11 +330,11 @@
 	},
 	"sources": {
 		"Internal.sol": {
-			"keccak256": "0x378714668205c7c5937aa0ec10f26cd0a9a47a9f1fec49ee15bc948192597aee",
+			"keccak256": "0xf0dfe2304fb79f6afee7b6dbb09e93205b2a566fa4b6d1f7a113a9ee1413c7ab",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://64646d52cb75922919965f0433fde287c9c3d7c23164ca73df6a1d98a719b590",
-				"dweb:/ipfs/QmZCSEQD5HHQyBMjz3Up8NQZr3NfX35eEhJFeF4ciD6VUH"
+				"bzz-raw://95062451c11961ed44fa37925fc0e45174c92e7b01c5a3b5d4b18eea6f69d734",
+				"dweb:/ipfs/QmcDec8itMGXnsPiqv3yup2rfzLDfVKH919KitcB3LGoRL"
 			]
 		}
 	},
