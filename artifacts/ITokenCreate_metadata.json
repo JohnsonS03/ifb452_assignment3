@@ -8,6 +8,24 @@
 			{
 				"inputs": [
 					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"name": "createRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
@@ -59,6 +77,37 @@
 							}
 						],
 						"internalType": "struct ITokenCreate.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getRequest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assignedOrgan",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ITokenCreate.RequestId",
 						"name": "",
 						"type": "tuple"
 					}
@@ -125,6 +174,36 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assignedOrgan",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ITokenCreate.RequestId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "updateRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -140,7 +219,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"EvaluateContract.sol": "ITokenCreate"
+			"AssignContract.sol": "ITokenCreate"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -154,12 +233,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"EvaluateContract.sol": {
-			"keccak256": "0xc4c1f0e168608f9bc0ac49e81b50e0e79cf15cdfdae43e67c01331d403af8823",
+		"AssignContract.sol": {
+			"keccak256": "0x1e4c6930b1fd5ec2871cb3a5ed973427a1490e6acd5a686356348ebfa2c7c332",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bc3b15097c83b2d55e82daf705d968a13c421dc2946b96f9e45214457f794e65",
-				"dweb:/ipfs/QmasNb6NPwFfEpGhoVg9ve6cgWH48QEMeEQQNQcRpGqbzS"
+				"bzz-raw://3dd39f4e6e1badc5abc7d414bbc722fd9f4c9910da0e79c6de2a9cd7709b4f8c",
+				"dweb:/ipfs/Qmb8TE8VeFewLVPtM5rhZGuNq8Qgx9sP9gWK7JYsypbKv9"
 			]
 		}
 	},

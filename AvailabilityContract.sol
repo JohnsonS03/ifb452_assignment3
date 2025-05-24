@@ -39,10 +39,20 @@ contract AvailableContract {
         _;
     }
 
+    /**
+* @notice Approves a request and assigns an available organ.
+*
+* @dev This function iterates through all organs, finds one that is not assigned,
+has been consented to, evaluated, stored, but still available, updates the
+corresponding OrganId struct with the new donor information and emits an event
+indicating approval of a request. It also increments or decrements counters as needed.
+*
+* @param requestId The unique identifier of the request being approved.
+*/
     function approveRequest(uint256 requestId) public onlyHealthcare {
         ITokenCreate.RequestId memory r = tokenContract.getRequest(requestId);
         require(!r.isApproved, "Request has been approved and assigned an organ");
         r.isApproved = true;
-        tokenContract.updateRequest(requestId, r);
+        tokenContract.approveRequest(requestId, r);
     }
 }

@@ -63,12 +63,23 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"createRequest(string)": {
+					"details": "This function creates a new RequestId struct with provided patient details and calls the createRequest method of ITokenCreate contract, passing in patient.",
+					"params": {
+						"patient": "The name of the patient for whom this request is being created."
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"createRequest(string)": {
+					"notice": "Creates a new request."
+				}
+			},
 			"version": 1
 		}
 	},
@@ -89,11 +100,11 @@
 	},
 	"sources": {
 		"AssignContract.sol": {
-			"keccak256": "0xfeba47c96bd473a2ba735ba90fc9a8c4254343a535e69e1f767a652e9b40ce91",
+			"keccak256": "0x1e4c6930b1fd5ec2871cb3a5ed973427a1490e6acd5a686356348ebfa2c7c332",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2040f2977a676799408913d4e9ffe3b9e36bf228abc34b87cd7b869b5a1f8ee4",
-				"dweb:/ipfs/QmfMaWU3yLCKrkWyhSZ1E1R3Y7jXVLfXPGvdL6hgxVJkLZ"
+				"bzz-raw://3dd39f4e6e1badc5abc7d414bbc722fd9f4c9910da0e79c6de2a9cd7709b4f8c",
+				"dweb:/ipfs/Qmb8TE8VeFewLVPtM5rhZGuNq8Qgx9sP9gWK7JYsypbKv9"
 			]
 		}
 	},

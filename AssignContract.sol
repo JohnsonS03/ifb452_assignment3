@@ -39,6 +39,14 @@ contract AssignContract {
         _;
     }
 
+/**
+* @notice Creates a new request.
+*
+* @dev This function creates a new RequestId struct with provided patient details and calls
+the createRequest method of ITokenCreate contract, passing in patient.
+*
+* @param patient The name of the patient for whom this request is being created.
+*/
     function createRequest(string memory patient) public onlyDoctor {
         tokenContract.createRequest(patient, false);
     }

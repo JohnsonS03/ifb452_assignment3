@@ -11,6 +11,129 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "doner",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "date",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "condition",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "donatedTo",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isConsented",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isEvaluated",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isStored",
+						"type": "bool"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isAssigned",
+						"type": "bool"
+					}
+				],
+				"name": "organIdCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "patient",
+						"type": "string"
+					}
+				],
+				"name": "requestApproved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "patient",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isApproved",
+						"type": "bool"
+					}
+				],
+				"name": "requestIdCreated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isApproved",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct TokenCreateContract.RequestId",
+						"name": "_request",
+						"type": "tuple"
+					}
+				],
+				"name": "approveRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "availableOrgan",
 				"outputs": [
@@ -282,6 +405,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "totalRequest",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -340,36 +476,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_id",
-						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "patientName",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "isApproved",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct TokenCreateContract.RequestId",
-						"name": "_request",
-						"type": "tuple"
-					}
-				],
-				"name": "updateRequest",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -400,11 +506,11 @@
 	},
 	"sources": {
 		"OrganCreateContract.sol": {
-			"keccak256": "0x0f6324d36a61f0c932094796097d518bfd77f08631ed315ec78ff4f483ad38c5",
+			"keccak256": "0x3fbda4fe07d7f1804539da43c64aecdf50f23ae6361d2c39539f3f40ea0cd891",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://99aa2aedcd0691e3661faf69b848b5f425c86ce1f70405bca1debf30f225e54c",
-				"dweb:/ipfs/QmP6mRaERaTETGUZBpKQHwWhenaYXswJzQHXdGy78rj7do"
+				"bzz-raw://46010b4cada2b64d15bbb5a9f3231f97a8036689daf829d882f762a4a6c7c26f",
+				"dweb:/ipfs/QmV1GQdEbZipfyvBJcshb9Uh4cVs7AFAgFhrpPGX25vUU7"
 			]
 		}
 	},
