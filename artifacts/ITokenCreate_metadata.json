@@ -8,6 +8,36 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isApproved",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ITokenCreate.RequestId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "approveRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "string",
 						"name": "",
 						"type": "string"
@@ -102,9 +132,9 @@
 								"type": "string"
 							},
 							{
-								"internalType": "uint256",
-								"name": "assignedOrgan",
-								"type": "uint256"
+								"internalType": "bool",
+								"name": "isApproved",
+								"type": "bool"
 							}
 						],
 						"internalType": "struct ITokenCreate.RequestId",
@@ -174,36 +204,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "patientName",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "assignedOrgan",
-								"type": "uint256"
-							}
-						],
-						"internalType": "struct ITokenCreate.RequestId",
-						"name": "",
-						"type": "tuple"
-					}
-				],
-				"name": "updateRequest",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -219,7 +219,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"AssignContract.sol": "ITokenCreate"
+			"AvailabilityContract.sol": "ITokenCreate"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -233,12 +233,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"AssignContract.sol": {
-			"keccak256": "0x1e4c6930b1fd5ec2871cb3a5ed973427a1490e6acd5a686356348ebfa2c7c332",
+		"AvailabilityContract.sol": {
+			"keccak256": "0x44fed2aa2c0f71ff26edf5db4dd3bc398456c969a405c72348fa1cf649b9ca24",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3dd39f4e6e1badc5abc7d414bbc722fd9f4c9910da0e79c6de2a9cd7709b4f8c",
-				"dweb:/ipfs/Qmb8TE8VeFewLVPtM5rhZGuNq8Qgx9sP9gWK7JYsypbKv9"
+				"bzz-raw://1fab0300c7a85e05258156dbb5aae325c95569b9ce6f359952b2eef7cc9d99e4",
+				"dweb:/ipfs/QmUCHHxQbJXiby6vZ42UqZD489KDmo3bPDZ6NnoPWyEgeD"
 			]
 		}
 	},

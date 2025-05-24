@@ -13,7 +13,7 @@ contract TokenCreateContract {
         bool isAssigned;
     }
 
-    struct RequestId{
+    struct RequestId {
         string patientName;
         bool isApproved;
     }
@@ -30,28 +30,55 @@ contract TokenCreateContract {
         owner = msg.sender;
     }
 
-    modifier onlyOwner {
+    modifier onlyOwner() {
         require(msg.sender == owner, "only Owner");
         _;
     }
 
-    event organIdCreated(string doner, uint256 date, string condition, string donatedTo, bool isConsented, bool isEvaluated, bool isStored, bool isAssigned);
+    event organIdCreated(
+        string doner,
+        uint256 date,
+        string condition,
+        string donatedTo,
+        bool isConsented,
+        bool isEvaluated,
+        bool isStored,
+        bool isAssigned
+    );
     event requestIdCreated(string patient, bool isApproved);
     event requestApproved(uint256 requestId, string patient);
 
     /**
- * @notice Creates a new organ ID with provided details.
- *
- * @dev This function creates an OrganId struct and stores it in the mapping of organs, incrementing both organCount and availableOrgan. It also emits an event to notify that an organ has been created.
- *
- * @param _donerName The name of the donor who donated this organ.
- * @param _date The date when this organ was donated.
- */
+     * @notice Creates a new organ ID with provided details.
+     *
+     * @dev This function creates an OrganId struct and stores it in the mapping of organs, incrementing both organCount and availableOrgan. It also emits an event to notify that an organ has been created.
+     *
+     * @param _donerName The name of the donor who donated this organ.
+     * @param _date The date when this organ was donated.
+     */
     function createOrgan(string memory _donerName, uint256 _date) external {
         organCount++;
         availableOrgan++;
-        organs[organCount] = OrganId(_donerName, _date, "To be evaluated", "To be assigned", true, false, false, false);
-        emit organIdCreated(_donerName, _date, "To be evaluated", "To be assigned", true, false, false, false);
+        organs[organCount] = OrganId(
+            _donerName,
+            _date,
+            "To be evaluated",
+            "To be assigned",
+            true,
+            false,
+            false,
+            false
+        );
+        emit organIdCreated(
+            _donerName,
+            _date,
+            "To be evaluated",
+            "To be assigned",
+            true,
+            false,
+            false,
+            false
+        );
     }
 
     /**
@@ -80,11 +107,11 @@ contract TokenCreateContract {
 @dev This function returns the number of organs currently assigned and not yet stored, evaluated or consented.
 @return count of available organs in this contract.
 */
-    function getAvailableOrganCount() public view returns (uint256 count){
+    function getAvailableOrganCount() public view returns (uint256 count) {
         return availableOrgan;
     }
 
-/**
+    /**
 
 @notice Creates a new request ID with provided details.
 @dev This function creates an RequestId struct and stores it in the mapping of requests, incrementing both requestCount and totalRequest. It also emits an event to notify that a request has been created.
@@ -98,7 +125,7 @@ contract TokenCreateContract {
         emit requestIdCreated(patientName, approved);
     }
 
-/**
+    /**
 
 @notice Retrieves a request ID from the mapping of requests.
 @dev This function retrieves and returns an RequestId struct by its ID, if it exists in the mapping.
@@ -107,9 +134,9 @@ contract TokenCreateContract {
 */
     function getRequest(uint256 _id) external view returns (RequestId memory) {
         return requests[_id];
-    }    
+    }
 
-/**
+    /**
 
 @notice Approves a request and assigns an available organ.
 @dev This function iterates through all organs, finds one that is not assigned,
@@ -122,8 +149,13 @@ contract TokenCreateContract {
 @param _id The unique identifier of the request being approved.
 **/
     function approveRequest(uint256 _id, RequestId memory _request) external {
-        for (uint256 i = 1 ; i <= organCount; i ++) {
-            if (organs[i].isAssigned == false && organs[i].isConsented == true && organs[i].isEvaluated == true && organs[i].isStored == true) {
+        for (uint256 i = 1; i <= organCount; i++) {
+            if (
+                organs[i].isAssigned == false &&
+                organs[i].isConsented == true &&
+                organs[i].isEvaluated == true &&
+                organs[i].isStored == true
+            ) {
                 requests[_id] = _request;
                 organs[i].donatedTo = _request.patientName;
                 organs[i].isAssigned = true;

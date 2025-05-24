@@ -49,14 +49,44 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
+			"approveRequest(uint256,(string,bool))": "5be2218b",
 			"createRequest(string,bool)": "2f045b02",
 			"getOrgan(uint256)": "10742b51",
 			"getRequest(uint256)": "c58343ef",
-			"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": "0d47dd26",
-			"updateRequest(uint256,(string,uint256))": "f20fdf40"
+			"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": "0d47dd26"
 		}
 	},
 	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "patientName",
+							"type": "string"
+						},
+						{
+							"internalType": "bool",
+							"name": "isApproved",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ITokenCreate.RequestId",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"name": "approveRequest",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
 		{
 			"inputs": [
 				{
@@ -154,9 +184,9 @@
 							"type": "string"
 						},
 						{
-							"internalType": "uint256",
-							"name": "assignedOrgan",
-							"type": "uint256"
+							"internalType": "bool",
+							"name": "isApproved",
+							"type": "bool"
 						}
 					],
 					"internalType": "struct ITokenCreate.RequestId",
@@ -223,36 +253,6 @@
 				}
 			],
 			"name": "updateOrgan",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "patientName",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "assignedOrgan",
-							"type": "uint256"
-						}
-					],
-					"internalType": "struct ITokenCreate.RequestId",
-					"name": "",
-					"type": "tuple"
-				}
-			],
-			"name": "updateRequest",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"

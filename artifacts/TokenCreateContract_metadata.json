@@ -184,19 +184,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "getAllOrgans",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "count",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "getAvailableOrganCount",
 				"outputs": [
 					{
@@ -480,12 +467,85 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"approveRequest(uint256,(string,bool))": {
+					"details": "This function iterates through all organs, finds one that is not assigned, has been consented to, evaluated, stored, but still available, updates the  corresponding OrganId struct with the new donor information and emits an event indicating approval of a request. It also increments or decrements counters as needed.",
+					"params": {
+						"_id": "The unique identifier of the request being approved.*"
+					}
+				},
+				"createOrgan(string,uint256)": {
+					"details": "This function creates an OrganId struct and stores it in the mapping of organs, incrementing both organCount and availableOrgan. It also emits an event to notify that an organ has been created.",
+					"params": {
+						"_date": "The date when this organ was donated.",
+						"_donerName": "The name of the donor who donated this organ."
+					}
+				},
+				"createRequest(string,bool)": {
+					"details": "This function creates an RequestId struct and stores it in the mapping of requests, incrementing both requestCount and totalRequest. It also emits an event to notify that a request has been created.",
+					"params": {
+						"approved": "Whether or not this request is approved",
+						"patientName": "The name of the patient who made this request."
+					}
+				},
+				"getAvailableOrganCount()": {
+					"details": "This function returns the number of organs currently assigned and not yet stored, evaluated or consented.",
+					"returns": {
+						"count": "of available organs in this contract."
+					}
+				},
+				"getOrgan(uint256)": {
+					"details": "This function retrieves and returns an OrganId struct by its ID, if it exists in the mapping.",
+					"params": {
+						"_id": "The unique identifier of the organ to be retrieved."
+					},
+					"returns": {
+						"_0": "An OrganId struct with details about the requested organ, or a default value (all fields set to their zero-value) if not found."
+					}
+				},
+				"getRequest(uint256)": {
+					"details": "This function retrieves and returns an RequestId struct by its ID, if it exists in the mapping.",
+					"params": {
+						"_id": "The unique identifier of the request to be retrieved."
+					},
+					"returns": {
+						"_0": "An RequestId struct with details about the requested organ, or a default value (all fields set to their zero-value) if not found."
+					}
+				},
+				"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": {
+					"details": "This function updates and replaces the existing OrganId struct with a new one, if it exists in the mapping.",
+					"params": {
+						"_id": "The unique identifier of the organ to be updated.*"
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"approveRequest(uint256,(string,bool))": {
+					"notice": "Approves a request and assigns an available organ."
+				},
+				"createOrgan(string,uint256)": {
+					"notice": "Creates a new organ ID with provided details."
+				},
+				"createRequest(string,bool)": {
+					"notice": "Creates a new request ID with provided details."
+				},
+				"getAvailableOrganCount()": {
+					"notice": "Retrieves the current available organ count."
+				},
+				"getOrgan(uint256)": {
+					"notice": "Retrieves an OrganId struct from the mapping of organs."
+				},
+				"getRequest(uint256)": {
+					"notice": "Retrieves a request ID from the mapping of requests."
+				},
+				"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": {
+					"notice": "Updates an existing OrganId struct in the mapping of organs."
+				}
+			},
 			"version": 1
 		}
 	},
@@ -506,11 +566,11 @@
 	},
 	"sources": {
 		"OrganCreateContract.sol": {
-			"keccak256": "0x3fbda4fe07d7f1804539da43c64aecdf50f23ae6361d2c39539f3f40ea0cd891",
+			"keccak256": "0x740345f3847ebbead5d65e08d25a72460fc670b6243ad41cfdb58d40ea370473",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://46010b4cada2b64d15bbb5a9f3231f97a8036689daf829d882f762a4a6c7c26f",
-				"dweb:/ipfs/QmV1GQdEbZipfyvBJcshb9Uh4cVs7AFAgFhrpPGX25vUU7"
+				"bzz-raw://130aec6fbda64b23f1ee588eb61e222209a1b679acc6c6098b0f621ba0061ed0",
+				"dweb:/ipfs/QmZ3HSb1Q8QEyDd2bALHo2Ahc5usXmvdRsCcqtUvGK9Yrv"
 			]
 		}
 	},

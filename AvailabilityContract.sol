@@ -13,16 +13,20 @@ interface ITokenCreate {
         bool isAssigned;
     }
 
-    struct RequestId{
+    struct RequestId {
         string patientName;
         bool isApproved;
     }
 
     function getOrgan(uint256) external view returns (OrganId memory);
+
     function updateOrgan(uint256, OrganId memory) external;
+
     function getRequest(uint256) external view returns (RequestId memory);
+
     function approveRequest(uint256, RequestId memory) external;
-    function createRequest(string memory, bool) external ;
+
+    function createRequest(string memory, bool) external;
 }
 
 contract AvailableContract {
@@ -31,7 +35,7 @@ contract AvailableContract {
 
     constructor(address _healthcare, address _tokenAddr) {
         healthcare = _healthcare;
-        tokenContract = ITokenCreate (_tokenAddr);
+        tokenContract = ITokenCreate(_tokenAddr);
     }
 
     modifier onlyHealthcare() {
@@ -51,7 +55,10 @@ indicating approval of a request. It also increments or decrements counters as n
 */
     function approveRequest(uint256 requestId) public onlyHealthcare {
         ITokenCreate.RequestId memory r = tokenContract.getRequest(requestId);
-        require(!r.isApproved, "Request has been approved and assigned an organ");
+        require(
+            !r.isApproved,
+            "Request has been approved and assigned an organ"
+        );
         r.isApproved = true;
         tokenContract.approveRequest(requestId, r);
     }

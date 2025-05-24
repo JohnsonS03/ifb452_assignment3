@@ -13,16 +13,20 @@ interface ITokenCreate {
         bool isAssigned;
     }
 
-    struct RequestId{
+    struct RequestId {
         string patientName;
         uint256 assignedOrgan;
     }
 
     function getOrgan(uint256) external view returns (OrganId memory);
+
     function updateOrgan(uint256, OrganId memory) external;
+
     function getRequest(uint256) external view returns (RequestId memory);
+
     function updateRequest(uint256, RequestId memory) external;
-    function createRequest(string memory, bool) external ;
+
+    function createRequest(string memory, bool) external;
 }
 
 contract AssignContract {
@@ -39,7 +43,7 @@ contract AssignContract {
         _;
     }
 
-/**
+    /**
 * @notice Creates a new request.
 *
 * @dev This function creates a new RequestId struct with provided patient details and calls

@@ -68,12 +68,24 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"consent(string,uint256)": {
+					"details": "This function creates a new OrganId struct with provided details and calls the createOrgan method of ITokenCreate contract, passing in _name and _date.",
+					"params": {
+						"_date": "The date when this donation was made.",
+						"_name": "The name of the donated organ being created."
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"consent(string,uint256)": {
+					"notice": "Allows a donor to create an organ."
+				}
+			},
 			"version": 1
 		}
 	},
@@ -94,11 +106,11 @@
 	},
 	"sources": {
 		"ConsentContract.sol": {
-			"keccak256": "0xa9d976637385fb806ac601bf4ff57065031e056caab5bb5b85d6386764fb7649",
+			"keccak256": "0x1fc960142a03ba5ded90ea4625fe3c1f81d95ed2d93e98797fae560b310b374f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2e346c23410b4ab3f22bf525f068dff0c9bd7e76e2dbac0a15b1236f91454966",
-				"dweb:/ipfs/QmY29NtkbNk8bugo2XzPzU71off7MRAkjNFdmdjnf6gsdW"
+				"bzz-raw://938548e176a5dcebb4d0dd2b482e0ff242645d5f571497592b4a6e382bf32bb4",
+				"dweb:/ipfs/QmTffQKnpC5AFnKGRAb13SdmjoNPB9faUK8scGVQsR8uuQ"
 			]
 		}
 	},

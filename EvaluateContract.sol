@@ -14,6 +14,7 @@ interface ITokenCreate {
     }
 
     function getOrgan(uint256) external view returns (OrganId memory);
+
     function updateOrgan(uint256, OrganId memory) external;
 }
 
@@ -31,7 +32,7 @@ contract EvaluateContract {
         _;
     }
 
-/**
+    /**
 
 @notice Evaluates a donated organ and updates its status.
 
@@ -43,10 +44,16 @@ and emits an event indicating that this request was successfully evaluated.
 
 @param condition A string describing the current state or health status of the organ after evaluation.
 */
-    function evaluate(uint256 organId, string memory condition) public onlySpecialist {
+    function evaluate(uint256 organId, string memory condition)
+        public
+        onlySpecialist
+    {
         ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
         require(o.isConsented, "Not consented");
-        require(!o.isEvaluated, "Organ has been evaluated and given a condition");
+        require(
+            !o.isEvaluated,
+            "Organ has been evaluated and given a condition"
+        );
         o.condition = condition;
         o.isEvaluated = true;
         o.isStored = true;

@@ -19,7 +19,7 @@ contract ConsentContract {
         _;
     }
 
-/**
+    /**
 
 @notice Allows a donor to create an organ.
 
