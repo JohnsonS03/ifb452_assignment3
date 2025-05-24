@@ -1,4 +1,4 @@
-###GITHUB: https://github.com/JohnsonS03/ifb452_assignment3.git
+**GITHUB**: https://github.com/JohnsonS03/ifb452_assignment3.git
 
 ### Node.js server
 Download the [Node.js](https://nodejs.org/en/download). <br/>
