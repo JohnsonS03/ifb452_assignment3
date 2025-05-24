@@ -760,6 +760,9 @@ document.getElementById('button').addEventListener("click", updateAvailableDispl
 document.getElementById('organID').addEventListener('change', function() {
     updateOrganPreview();
 })
+document.getElementById('requestID').addEventListener('change', function() {
+    updateRequestPreview();
+})
 
 
 async function updateOrganPreview() {
@@ -781,9 +784,30 @@ async function updateOrganPreview() {
 	}catch (err) {
 		console.error("Failed to fetch organ data:", err);
 	}
-
 }
 
+async function updateRequestPreview() {
+	const targetRequest = document.getElementById('requestID').value;
+	console.log(targetRequest);
+	
+	try {
+		const request = await getRequest(targetRequest);
+		statusText = "";
+		const status = request.isApproved;
+		
+		if(status) {
+			statusText = "Has Been Approved";
+		} 
+		else {
+			statusText = "Has Not Been Approved";
+		}
+		
+		console.log(`${name}${statusText}`);
+		document.getElementById('statusID').innerText = statusText;
+	}catch (err) {
+		console.error("Failed to fetch organ data:", err);
+	}
+}
 
 async function updateAvailableDisplay(event) {
 	const availableOrganCount = await availableOrganCountGetter();
@@ -824,13 +848,21 @@ function populateOrganDropdown(organList) {
 
 function populateRequestDropdown(requestList) {
 	const select = document.getElementById("requestSelect");
+	const select1 = document.getElementById("requestID");
 	select.innerHTML = `<option value="0">--Requests--</option>`;
+	select1.innerHTML = `<option value="0">--Requests--</option>`;
 	console.log(requestList);
 	requestList.forEach(request => {
 		const option = document.createElement("option");
 		option.value = request.id;
-		option.text = `${request.id} ${request.patientName} (${request.approved})`;
+		option.text = `${request.id}. ${request.patientName} (${request.approved})`;
 		select.appendChild(option);
+	})
+	requestList.forEach(request => {
+		const option = document.createElement("option");
+		option.value = request.id;
+		option.text = `${request.id}. ${request.patientName}`;
+		select1.appendChild(option);
 	})
 }
 	
@@ -858,6 +890,12 @@ async function getOrgan(targetId) {
 	const contract = TokenCreateContract;
 	const theOrgan = await contract.methods.getOrgan(targetId).call();
 	return theOrgan;
+}
+
+async function getRequest(targetId) {
+	const contract = TokenCreateContract;
+	const theRequest = await contract.methods.getRequest(targetId).call();
+	return theRequest;
 }
 
 async function availableOrganCountGetter() {
