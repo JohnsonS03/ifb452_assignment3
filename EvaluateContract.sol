@@ -34,8 +34,10 @@ contract EvaluateContract {
     function evaluate(uint256 organId, string memory condition) public onlySpecialist {
         ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
         require(o.isConsented, "Not consented");
+        require(!o.isEvaluated, "Organ has been evaluated and given a condition");
         o.condition = condition;
         o.isEvaluated = true;
+        o.isStored = true;
         tokenContract.updateOrgan(organId, o);
     }
 }

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -22,6 +22,19 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "approveRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "healthcare",
 				"outputs": [
@@ -35,24 +48,11 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "organId",
-						"type": "uint256"
-					}
-				],
-				"name": "store",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "tokenContract",
 				"outputs": [
 					{
-						"internalType": "contract ITokenCreateEval",
+						"internalType": "contract ITokenCreate",
 						"name": "",
 						"type": "address"
 					}
@@ -76,7 +76,7 @@
 		"compilationTarget": {
 			"AvailabilityContract.sol": "AvailableContract"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -89,11 +89,11 @@
 	},
 	"sources": {
 		"AvailabilityContract.sol": {
-			"keccak256": "0x4f75ef48826ab66bc2a2719fa95eb6caa5d461bd2d6c58dcac620e20bfa17c32",
+			"keccak256": "0xdae44b509ef228170331dda6a2b779c73c362b27b3e7786d7aeefe3e86fa3346",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://86f3da39f251c60ae9565d0a4a06523590cb83f402ea2e8dfc724e7ed74d8706",
-				"dweb:/ipfs/QmPLziYV79N6oJ3aDXa2aK5yL9jrbS1AeaFghKYJAizSv4"
+				"bzz-raw://56de6e3aaf5ffeadd1db75e9aff5fa0d9bfa1cde062f4c2fd1f6c47ebc156d69",
+				"dweb:/ipfs/QmZvGMmuT9YkTS9Bd7WYSjCDxA9jyRApxFs6EAW9tSpfom"
 			]
 		}
 	},

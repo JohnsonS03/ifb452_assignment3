@@ -13,8 +13,16 @@ interface ITokenCreate {
         bool isAssigned;
     }
 
+    struct RequestId{
+        string patientName;
+        bool isApproved;
+    }
+
     function getOrgan(uint256) external view returns (OrganId memory);
     function updateOrgan(uint256, OrganId memory) external;
+    function getRequest(uint256) external view returns (RequestId memory);
+    function approveRequest(uint256, RequestId memory) external;
+    function createRequest(string memory, bool) external ;
 }
 
 contract AvailableContract {
@@ -31,10 +39,10 @@ contract AvailableContract {
         _;
     }
 
-    function store(uint256 organId) public onlyHealthcare {
-        ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
-        require(o.isEvaluated, "Not evaluated");
-        o.isStored = true;
-        tokenContract.updateOrgan(organId, o);
+    function approveRequest(uint256 requestId) public onlyHealthcare {
+        ITokenCreate.RequestId memory r = tokenContract.getRequest(requestId);
+        require(!r.isApproved, "Request has been approved and assigned an organ");
+        r.isApproved = true;
+        tokenContract.updateRequest(requestId, r);
     }
 }
