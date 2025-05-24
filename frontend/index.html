@@ -1,224 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-			<title>Organ Donation Form</title>
-			<style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-      background-color: #f5f5f5;
-    }
 
-    h2 {
-      color: #333;
-    }
+<head>
+	<meta charset="UTF-8">
+	<title>Organ Donation Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 30px;
+			background-color: #f5f5f5;
+		}
 
-    .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-    }
+		h2 {
+			color: #333;
+		}
 
-    .left-column,
-    .right-column {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+		.container {
+			display: flex;
+			justify-content: space-between;
+			gap: 40px;
+		}
 
-    .form-container {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-	.number-box {
-  background-color: #f1f8e9;
-  border: 2px solid #8bc34a;
-  border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #33691e;
-  margin-bottom: 10px;
-}
+		.left-column,
+		.right-column {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
 
-    .form-group {
-      margin-bottom: 15px;
-    }
+		.form-container {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
 
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+		.number-box {
+			background-color: #f1f8e9;
+			border: 2px solid #8bc34a;
+			border-radius: 8px;
+			padding: 12px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			color: #33691e;
+			margin-bottom: 10px;
+		}
 
-    header {
-      display: block;
-      font-weight: bold;
-      font-size:25px;
-      margin-bottom: 5px;
-    }
+		.form-group {
+			margin-bottom: 15px;
+		}
 
-    input, select {
-      width: 100%;
-      padding: 8px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+		label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
 
-    .button-group {
-      margin-top: 20px;
-    }
+		header {
+			display: block;
+			font-weight: bold;
+			font-size: 25px;
+			margin-bottom: 5px;
+		}
 
-    button {
-      padding: 10px 12px;
-      margin: 5px 4px;
-      font-size: 14px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-    }
+		input,
+		select {
+			width: 100%;
+			padding: 8px;
+			font-size: 14px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
 
-    button:hover {
-      background-color: #45a049;
-    }
+		.button-group {
+			margin-top: 20px;
+		}
 
-    #output {
-      margin-top: 30px;
-      padding: 15px;
-      background-color: #e0f7fa;
-      border: 1px solid #00acc1;
-      border-radius: 5px;
-      min-height: 50px;
-    }
-  </style>
-		</head>
-		<body>
-			<h2>Organ Donation Form</h2>
-			<div class="container">
-				<!-- Left Column -->
-				<div class="left-column">
-					<div class="form-container">
-						<header for="accountSelect">Current Address:</header>
-						<select id="accountSelect">
-        </select>
-					</div>
-					<div class="form-container">
-						<header for="doner">Doner:</header>
-						<label for="donorName">Name</label>
-						<input type="text" id="donerName" required>
-						<div class="button-group">
-							<button onclick="addDoner()">ConsentToAgree</button>
-						</div>
-					</div>
-					<div class="form-container">
-						<header for="specialist">Specialist:</header>
-						<label for="organSelect">Select an Organ ID to Evaluate</label>
-						<select id="organSelect">
-							<option value="">-Organ ID-</option>
-						</select>
-						<label for="conditionSelect">Condition</label>
-						<select id="conditionSelect">
-							<option value="0">--Select--</option>
-							<option value="1">Great</option>
-							<option value="2">Good</option>
-							<option value="3">Average</option>
-							<option value="4">Bad</option>
-						</select>
-						<div class="button-group">
-							<button id="button" onclick="evaluateOrgan()">Evaluate</button>
-						</div>
-					</div>
-					<div class="form-container">
-							<form id="organForm">
-								<div class="form-group">
-									<label for="organ">Organ ID:</label>
-									<select id="organID">
-										<option value="0">-Organ ID-</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="donor">Donor:</label>
-									<p>
-										<span id="nameID">N/A</span>
-									</p>
-								</div>
-								<div class="form-group">
-									<label for="dateDonated">Date Donated:</label>
-									<p>
-										<span id="dateID">N/A</span>
-									</p>
-								<div class="form-group">
-									<label for="condition">Condition:</label>
-									<p>
-										<span id="conditionID">N/A</span>
-									</p>
-								</div>
-								<div class="form-group">
-									<label for="donatedTo">Donated To:</label>
-									<p>
-										<span id="patientID">N/A</span>
-									</p>
-								</div>
-							</form>
-						</div>
-						
-					</div>
-					<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
-				</div>
-				<!-- Right Column -->
-				<div class="right-column">
-					<div class="form-container">
-						<header for="healthcare">Healthcare:</header>
-						<div class="number-box">
-							<div class="number-display" id="numberDisplay">0</div>
-						</div>
-						<select id="requestSelect">
-							<option value="0">--Requests--</option>
-						</select>
-						<div class="button-group">
-							<button onclick="approveRequest()">Approve</button>
-						</div>
-					</div>
-					<div class="form-container">
-						<header for="practitioner">Practitioner:</header>
-						<label for="patientName">Patient Name</label>
-						<input type="text" id="patientName">
-							<div class="button-group">
-								<button onclick="createRequest()">Request</button>
-							</div>
-						</div>
-						<div class="form-container">
-							<header for="reception">Reception:</header>
-							<div class="button-group">
-								<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
-							</div>
-						</div>
-						
-					<div class="form-container">
-        <header for="specialist">Approve Status:</header>
-        <label for="patient Name">Patient:</label>
+		button {
+			padding: 10px 12px;
+			margin: 5px 4px;
+			font-size: 14px;
+			border: none;
+			border-radius: 5px;
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
 
-        <select id="requestID">
-        <option value="">--Requests--</option>
-        </select>
-		<label for="status">Status:</label>
-									<p>
-										<span id="statusID">N/A</span>
-									</p>
-		
-      </div>
-				</div>
-				
+		button:hover {
+			background-color: #45a049;
+		}
+
+		#output {
+			margin-top: 30px;
+			padding: 15px;
+			background-color: #e0f7fa;
+			border: 1px solid #00acc1;
+			border-radius: 5px;
+			min-height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Organ Donation Form</h2>
+	<div class="container">
+		<!-- Left Column -->
+		<div class="left-column">
+			<div class="form-container">
+				<header for="accountSelect">Current Address:</header>
+				<select id="accountSelect">
+				</select>
 			</div>
-			<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
-			<script src="myScript.js"></script>
-		</body>
-	</html>
+			<div class="form-container">
+				<header for="doner">Doner:</header>
+				<label for="donorName">Name</label>
+				<input type="text" id="donerName" required>
+				<div class="button-group">
+					<button onclick="addDoner()">ConsentToAgree</button>
+				</div>
+			</div>
+			<div class="form-container">
+				<header for="specialist">Specialist:</header>
+				<label for="organSelect">Select an Organ ID to Evaluate</label>
+				<select id="organSelect">
+					<option value="">-Organ ID-</option>
+				</select>
+				<label for="conditionSelect">Condition</label>
+				<select id="conditionSelect">
+					<option value="0">--Select--</option>
+					<option value="1">Great</option>
+					<option value="2">Good</option>
+					<option value="3">Average</option>
+					<option value="4">Bad</option>
+				</select>
+				<div class="button-group">
+					<button id="button" onclick="evaluateOrgan()">Evaluate</button>
+				</div>
+			</div>
+			<div class="form-container">
+				<form id="organForm">
+					<div class="form-group">
+						<label for="organ">Organ ID:</label>
+						<select id="organID">
+							<option value="0">-Organ ID-</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="donor">Donor:</label>
+						<p>
+							<span id="nameID">N/A</span>
+						</p>
+					</div>
+					<div class="form-group">
+						<label for="dateDonated">Date Donated:</label>
+						<p>
+							<span id="dateID">N/A</span>
+						</p>
+						<div class="form-group">
+							<label for="condition">Condition:</label>
+							<p>
+								<span id="conditionID">N/A</span>
+							</p>
+						</div>
+						<div class="form-group">
+							<label for="donatedTo">Donated To:</label>
+							<p>
+								<span id="patientID">N/A</span>
+							</p>
+						</div>
+				</form>
+			</div>
+
+		</div>
+		<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
+	</div>
+	<!-- Right Column -->
+	<div class="right-column">
+		<div class="form-container">
+			<header for="healthcare">Healthcare:</header>
+			<div class="number-box">
+				<div class="number-display" id="numberDisplay">0</div>
+			</div>
+			<select id="requestSelect">
+				<option value="0">--Requests--</option>
+			</select>
+			<div class="button-group">
+				<button onclick="approveRequest()">Approve</button>
+			</div>
+		</div>
+		<div class="form-container">
+			<header for="practitioner">Practitioner:</header>
+			<label for="patientName">Patient Name</label>
+			<input type="text" id="patientName">
+			<div class="button-group">
+				<button onclick="createRequest()">Request</button>
+			</div>
+		</div>
+		<div class="form-container">
+			<header for="reception">Reception:</header>
+			<div class="button-group">
+				<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
+			</div>
+		</div>
+
+		<div class="form-container">
+			<header for="specialist">Approve Status:</header>
+			<label for="patient Name">Patient:</label>
+
+			<select id="requestID">
+				<option value="">--Requests--</option>
+			</select>
+			<label for="status">Status:</label>
+			<p>
+				<span id="statusID">N/A</span>
+			</p>
+
+		</div>
+	</div>
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+	<script src="myScript.js"></script>
+</body>
+
+</html>

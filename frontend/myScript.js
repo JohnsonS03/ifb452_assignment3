@@ -701,7 +701,7 @@ const tokenCreateContractAddress = '0xF973B766ef18340D8AB76FFcaC0D53C75C1A143f';
 const consentContractAddress = '0x9627744033843fEd1ffc4cd8cE62C9f88c333d83';
 const evaluateContractAddress = '0xa22E8564c0c297eee6897DCB2045Ae0855A2937f';
 const assignContractAddress = '0xAb53C3dACCD38C105B704bE1bcCdF3B6cB700b03';
-const availabilityContractAddress = '0x7a4b6993b04dB4a85E5016c1FB65727822f1ecbe';	
+const availabilityContractAddress = '0x7a4b6993b04dB4a85E5016c1FB65727822f1ecbe';
 
 let web3;
 let accounts = [];
@@ -717,13 +717,13 @@ let AvailabilityContract;
 		try {
 			web3 = new Web3(window.ethereum);
 			accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-			
+
 			TokenCreateContract = new web3.eth.Contract(tokenCreateContractABI, tokenCreateContractAddress);
 			ConsentContract = new web3.eth.Contract(ConsentContractABI, consentContractAddress);
 			EvaluateContract = new web3.eth.Contract(EvaluateContractABI, evaluateContractAddress);
 			AssignContract = new web3.eth.Contract(AssignContractABI, assignContractAddress);
 			AvailabilityContract = new web3.eth.Contract(AvailabilityContractABI, availabilityContractAddress);
-			
+
 			populateAccountDropdown(accounts);
 			loadRequestsToDropdown();
 			loadOrgansToDropdown();
@@ -732,56 +732,59 @@ let AvailabilityContract;
 		} catch (err) {
 			console.error("User denied wallet connection or error occurred:", err);
 		}
-	}else {
+	} else {
 		alert("MetaMask is not installed. Please install it to use this app.");
 	}
 })();
 
 window.addEventListener("load", async () => {
-      if (window.ethereum) {
-        const web3 = new Web3(window.ethereum);
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        console.log("Connected account:", accounts);
-      } else {
-        alert("MetaMask not found.");
-      }
-    });
+	if (window.ethereum) {
+		const web3 = new Web3(window.ethereum);
+		const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+		console.log("Connected account:", accounts);
+	} else {
+		alert("MetaMask not found.");
+	}
+});
 
-    window.ethereum?.on('accountsChanged', (newAccounts) => {
-      accounts = newAccounts;
-      populateAccountDropdown(accounts);
-    });
+window.ethereum?.on('accountsChanged', (newAccounts) => {
+	accounts = newAccounts;
+	populateAccountDropdown(accounts);
+});
 
 
 const todayDate = new Date();
 const timestamp = todayDate.getTime();
 let organCount = 0;
 document.getElementById('button').addEventListener("click", updateAvailableDisplay());
-document.getElementById('organID').addEventListener('change', function() {
-    updateOrganPreview();
+document.getElementById('organID').addEventListener('change', function () {
+	updateOrganPreview();
 })
-document.getElementById('requestID').addEventListener('change', function() {
-    updateRequestPreview();
+document.getElementById('requestID').addEventListener('change', function () {
+	updateRequestPreview();
 })
 
-
+/**
+ *
+ *
+ */
 async function updateOrganPreview() {
 	const targetOrgan = document.getElementById('organID').value;
 	console.log(targetOrgan);
-	
+
 	try {
 		const organ = await getOrgan(targetOrgan);
 		const name = organ.donerName;
 		const date = timestampToDate(organ.dateDonated);
 		const condition = organ.condition;
 		const patient = organ.donatedTo;
-		
+
 		console.log(`${organ.donerName}${timestampToDate(organ.dateDonated)}${organ.condition}${organ.donatedTo}`);
 		document.getElementById('nameID').innerText = name;
 		document.getElementById('dateID').innerText = date;
-		document.getElementById('conditionID').innerText = condition; 
+		document.getElementById('conditionID').innerText = condition;
 		document.getElementById('patientID').innerText = patient;
-	}catch (err) {
+	} catch (err) {
 		console.error("Failed to fetch organ data:", err);
 	}
 }
@@ -789,26 +792,31 @@ async function updateOrganPreview() {
 async function updateRequestPreview() {
 	const targetRequest = document.getElementById('requestID').value;
 	console.log(targetRequest);
-	
+
 	try {
 		const request = await getRequest(targetRequest);
 		statusText = "";
 		const status = request.isApproved;
-		
-		if(status) {
+
+		if (status) {
 			statusText = "Has Been Approved";
-		} 
+		}
 		else {
 			statusText = "Has Not Been Approved";
 		}
-		
+
 		console.log(`${name}${statusText}`);
 		document.getElementById('statusID').innerText = statusText;
-	}catch (err) {
+	} catch (err) {
 		console.error("Failed to fetch organ data:", err);
 	}
 }
 
+/**
+ *
+ *
+ * @param {*} event
+ */
 async function updateAvailableDisplay(event) {
 	const availableOrganCount = await availableOrganCountGetter();
 	const display = document.getElementById("numberDisplay");
@@ -816,16 +824,21 @@ async function updateAvailableDisplay(event) {
 }
 
 function populateAccountDropdown(accountList) {
-      const select = document.getElementById("accountSelect");
-      select.innerHTML = "";
-      accountList.forEach(account => {
-        const option = document.createElement("option");
-        option.value = account;
-        option.text = account;
-        select.appendChild(option);
-      });
+	const select = document.getElementById("accountSelect");
+	select.innerHTML = "";
+	accountList.forEach(account => {
+		const option = document.createElement("option");
+		option.value = account;
+		option.text = account;
+		select.appendChild(option);
+	});
 }
-	
+
+/**
+ *
+ *
+ * @param {*} organList
+ */
 function populateOrganDropdown(organList) {
 	const select = document.getElementById("organSelect");
 	const select1 = document.getElementById("organID");
@@ -846,6 +859,11 @@ function populateOrganDropdown(organList) {
 	})
 }
 
+/**
+ *
+ *
+ * @param {*} requestList
+ */
 function populateRequestDropdown(requestList) {
 	const select = document.getElementById("requestSelect");
 	const select1 = document.getElementById("requestID");
@@ -865,16 +883,33 @@ function populateRequestDropdown(requestList) {
 		select1.appendChild(option);
 	})
 }
-	
+
+/**
+ *
+ *
+ * @return {*} 
+ */
 function getSelectedAccount() {
 	return document.getElementById("accountSelect").value;
 }
 
+/**
+ *
+ *
+ * @param {*} time
+ * @return {*} 
+ */
 function timestampToDate(time) {
 	const date = new Date(timestamp);
 	return date.toLocaleDateString();
 }
 
+/**
+ *
+ *
+ * @param {*} selectId
+ * @param {*} targetId
+ */
 function removeOptionById(selectId, targetId) {
 	const select = document.getElementById(selectId);
 	for (let i = 1; i < select.options.length; i++) {
@@ -886,134 +921,189 @@ function removeOptionById(selectId, targetId) {
 	}
 }
 
+/**
+ *Getter to retrieve a specific organ data from the blockchain
+ *
+ * @param {*} targetId
+ * @return {*} 
+ */
 async function getOrgan(targetId) {
 	const contract = TokenCreateContract;
 	const theOrgan = await contract.methods.getOrgan(targetId).call();
 	return theOrgan;
 }
 
+/**
+ *Getter to retrieve a specific request data from the blockchain
+ *
+ * @param {*} targetId
+ * @return {*} 
+ */
 async function getRequest(targetId) {
 	const contract = TokenCreateContract;
 	const theRequest = await contract.methods.getRequest(targetId).call();
 	return theRequest;
 }
 
+/**
+ *Getter to retrieve the available organ count stored in the blockchain
+ *
+ * @return {*} 
+ */
 async function availableOrganCountGetter() {
 	const contract = TokenCreateContract;
 	const availableCount = await contract.methods.getAvailableOrganCount().call();
-	return availableCount; 
+	return availableCount;
 }
 
+/**
+ *
+ *
+ */
 async function loadOrgansToDropdown() {
 	const organList = await organGetter();
 	populateOrganDropdown(organList);
 }
 
+/**
+ *
+ *
+ */
 async function loadRequestsToDropdown() {
 	const requestList = await requestGetter();
 	populateRequestDropdown(requestList);
 }
 
+/**
+ *Getter to retrieve every organ stored in the blockchain
+ *
+ * @return {*} 
+ */
 async function organGetter() {
 	const organList = [];
 	organCount = await TokenCreateContract.methods.organCount().call();
-	
+
 	for (let i = 1; i <= organCount; i++) {
-	const organ = await TokenCreateContract.methods.getOrgan(i).call();
-	const donateDate = timestampToDate(organ.dateDonated);
-	
-	organList.push({id: i, donerName: organ.donerName, dateDonated: donateDate});
-	console.log();
-	console.log();
+		const organ = await TokenCreateContract.methods.getOrgan(i).call();
+		const donateDate = timestampToDate(organ.dateDonated);
+
+		organList.push({ id: i, donerName: organ.donerName, dateDonated: donateDate });
+		console.log();
+		console.log();
 	}
 	return organList;
 }
 
+/**
+ *Getter to retrieve every request stored in the blockchain
+ *
+ * @return {*} 
+ */
 async function requestGetter() {
 	const requestList = [];
 	const requestCount = await TokenCreateContract.methods.requestCount().call();
-	
+
 	for (let i = 1; i <= requestCount; i++) {
-	const request = await TokenCreateContract.methods.getRequest(i).call();
-	
-	requestList.push({id: i, patientName: request.patientName, approved: request.isApproved});
-	console.log();
-	console.log();
+		const request = await TokenCreateContract.methods.getRequest(i).call();
+
+		requestList.push({ id: i, patientName: request.patientName, approved: request.isApproved });
+		console.log();
+		console.log();
 	}
 	return requestList;
 }
 
+/**
+ *Create a tokenID by adding a new doner after consent is given
+ *
+ * @return {*} 
+ */
 async function addDoner() {
 	const name = document.getElementById("donerName").value; //to retrieve and assign the name to 'name'
 	if (!name) return alert("Please enter your name.");
 	const contract = ConsentContract;
 	const from = getSelectedAccount();
-	
+
 	if (!contract) {
-  alert("Please connect your wallet first and make sure the contract is loaded.");
-  return;
-}
-	try {
-		await contract.methods.consent(name, timestamp).send({from});
-		console.log("Donor added!");
-	}catch (err) {
-	console.error("Error occurred!", err);
+		alert("Please connect your wallet first and make sure the contract is loaded.");
+		return;
 	}
-	
+	try {
+		await contract.methods.consent(name, timestamp).send({ from });
+		console.log("Donor added!");
+	} catch (err) {
+		console.error("Error occurred!", err);
+	}
+
 	try {
 		loadOrgansToDropdown();
 		console.log("populatedOrgans!");
-	}catch (err) {
+	} catch (err) {
 		console.error("Error!!", err);
 	}
 }
- 
+
+/**
+ *Create a request with the given patient name
+ *
+ * @return {*} 
+ */
 async function createRequest() {
 	const name = document.getElementById("patientName").value; //to retrieve and assign the name to 'name'
 	if (!name) return alert("Please enter your name.");
 	const contract = AssignContract;
 	const from = getSelectedAccount();
-	
+
 	if (!contract) {
-  alert("Please connect your wallet first and make sure the contract is loaded.");
-  return;
-}
-	try {
-		await contract.methods.createRequest(name).send({from});
-		console.log("Request added!");
-	}catch (err) {
-	console.error("Error occurred!", err);
+		alert("Please connect your wallet first and make sure the contract is loaded.");
+		return;
 	}
-	
+	try {
+		await contract.methods.createRequest(name).send({ from });
+		console.log("Request added!");
+	} catch (err) {
+		console.error("Error occurred!", err);
+	}
+
 	try {
 		loadRequestsToDropdown();
 		console.log("populatedRequests!");
-	}catch (err) {
+	} catch (err) {
 		console.error("Error!!", err);
 	}
 }
 
+/**
+ *Approve selected request
+ *
+ * @return {*} 
+ */
 async function approveRequest() {
 	const requestSelect = document.getElementById("requestSelect");
 	const requestId = requestSelect.value;
 	const contract = AvailabilityContract;
 	const from = getSelectedAccount();
-	
+
 	if (!contract) {
-  alert("Please connect your wallet first and make sure the contract is loaded.");
-  return;
-}
+		alert("Please connect your wallet first and make sure the contract is loaded.");
+		return;
+	}
 	try {
-		await contract.methods.approveRequest(requestId).send({from});
+		await contract.methods.approveRequest(requestId).send({ from });
 		removeOptionById("requestSelect", requestId);
 		updateAvailableDisplay();
-		
+
 		console.log(`Request ${requestSelect} is approved.`);
-	}catch (err) {
-	console.error("Error occurred!", err);
+	} catch (err) {
+		console.error("Error occurred!", err);
 	}
 }
 
+/**
+ *Assign an selected evaluation to the organ
+ *
+ * @return {*} 
+ */
 async function evaluateOrgan() {
 	const conditionSelect = document.getElementById("conditionSelect");
 	const conditionValue = conditionSelect.value;
@@ -1024,17 +1114,17 @@ async function evaluateOrgan() {
 	if (conditionSelect == "0") return alert("Condition is not selected.");
 	const contract = EvaluateContract;
 	const from = getSelectedAccount();
-	
+
 	if (!contract) {
-  alert("Please connect your wallet first and make sure the contract is loaded.");
-  return;
-}
+		alert("Please connect your wallet first and make sure the contract is loaded.");
+		return;
+	}
 	try {
-		await contract.methods.evaluate(organId, conditionText).send({from});
+		await contract.methods.evaluate(organId, conditionText).send({ from });
 		removeOptionById("organSelect", organId);
 		console.log(`Organ ${organSelect} is evaluated with condition: ${conditionText}`);
-	}catch (err) {
-	console.error("Error occurred!", err);
+	} catch (err) {
+		console.error("Error occurred!", err);
 	}
 }
 
