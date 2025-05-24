@@ -757,6 +757,33 @@ const todayDate = new Date();
 const timestamp = todayDate.getTime();
 let organCount = 0;
 document.getElementById('button').addEventListener("click", updateAvailableDisplay());
+document.getElementById('organID').addEventListener('change', function() {
+    updateOrganPreview();
+})
+
+
+async function updateOrganPreview() {
+	const targetOrgan = document.getElementById('organID').value;
+	console.log(targetOrgan);
+	
+	try {
+		const organ = await getOrgan(targetOrgan);
+		const name = organ.donerName;
+		const date = timestampToDate(organ.dateDonated);
+		const condition = organ.condition;
+		const patient = organ.donatedTo;
+		
+		console.log(`${organ.donerName}${timestampToDate(organ.dateDonated)}${organ.condition}${organ.donatedTo}`);
+		document.getElementById('nameID').innerText = name;
+		document.getElementById('dateID').innerText = date;
+		document.getElementById('conditionID').innerText = condition; 
+		document.getElementById('patientID').innerText = patient;
+	}catch (err) {
+		console.error("Failed to fetch organ data:", err);
+	}
+
+}
+
 
 async function updateAvailableDisplay(event) {
 	const availableOrganCount = await availableOrganCountGetter();
@@ -777,19 +804,27 @@ function populateAccountDropdown(accountList) {
 	
 function populateOrganDropdown(organList) {
 	const select = document.getElementById("organSelect");
-	select.innerHTML = "";
+	const select1 = document.getElementById("organID");
+	select.innerHTML = `<option value="0">-Organ ID-</option>`;
+	select1.innerHTML = `<option value="0">-Organ ID-</option>`;
 	console.log(organList);
 	organList.forEach(organ => {
 		const option = document.createElement("option");
 		option.value = organ.id;
-		option.text = `${organ.id} ${organ.donerName} (${organ.dateDonated})`;
+		option.text = `${organ.id}. ${organ.donerName} (${organ.dateDonated})`;
 		select.appendChild(option);
+	})
+	organList.forEach(organ => {
+		const option = document.createElement("option");
+		option.value = organ.id;
+		option.text = `${organ.id}. ${organ.donerName} (${organ.dateDonated})`;
+		select1.appendChild(option);
 	})
 }
 
 function populateRequestDropdown(requestList) {
 	const select = document.getElementById("requestSelect");
-	select.innerHTML = "";
+	select.innerHTML = `<option value="0">--Requests--</option>`;
 	console.log(requestList);
 	requestList.forEach(request => {
 		const option = document.createElement("option");
@@ -817,6 +852,12 @@ function removeOptionById(selectId, targetId) {
 			break;
 		}
 	}
+}
+
+async function getOrgan(targetId) {
+	const contract = TokenCreateContract;
+	const theOrgan = await contract.methods.getOrgan(targetId).call();
+	return theOrgan;
 }
 
 async function availableOrganCountGetter() {
@@ -888,7 +929,7 @@ async function addDoner() {
 		console.error("Error!!", err);
 	}
 }
-
+ 
 async function createRequest() {
 	const name = document.getElementById("patientName").value; //to retrieve and assign the name to 'name'
 	if (!name) return alert("Please enter your name.");

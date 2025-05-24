@@ -137,12 +137,17 @@
 						</div>
 					</div>
 					<div class="form-container">
-						<header for="specialist">Approve Status:</header>
-						<label for="patient Name">Patient Name</label>
-						<text id="nameStatus">-Select a Name in Healthcare-</text>
-						<label for="status">Status</label>
-						<text id="approveStatus">-Not Yet Approved-</text>
-					</div>
+        <header for="specialist">Approve Status:</header>
+        <label for="patient Name">Patient Name</label>
+
+        <select id="pList">
+        <option value="">--Select a Patient--</option>
+        </select>
+
+        <label for="status">Status</label>
+        <text id="approveStatus">-Not Yet Approved-</text>
+		
+      </div>
 					<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
 				</div>
 				<!-- Right Column -->
@@ -153,7 +158,7 @@
 							<div class="number-display" id="numberDisplay">0</div>
 						</div>
 						<select id="requestSelect">
-							<option value="">--Requests--</option>
+							<option value="0">--Requests--</option>
 						</select>
 						<div class="button-group">
 							<button onclick="approveRequest()">Approve</button>
@@ -176,32 +181,33 @@
 						<div class="form-container">
 							<form id="organForm">
 								<div class="form-group">
-									<label for="organId">Organ ID:</label>
-									<select id="organAdd">
-										<option value="">-Organ ID-</option>
+									<label for="organ">Organ ID:</label>
+									<select id="organID">
+										<option value="0">-Organ ID-</option>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="donor">Donor</label>
-									<text id="nameID">
-				-NAME-
-			</text>
+									<label for="donor">Donor:</label>
+									<p>
+										<span id="nameID">N/A</span>
+									</p>
 								</div>
 								<div class="form-group">
-									<label for="dateDonated">Date Donated</label>
-									<div id="dateDisplay"/>
+									<label for="dateDonated">Date Donated:</label>
+									<p>
+										<span id="dateID">N/A</span>
+									</p>
+								<div class="form-group">
+									<label for="condition">Condition:</label>
+									<p>
+										<span id="conditionID">N/A</span>
+									</p>
 								</div>
 								<div class="form-group">
-									<label for="condition">Condition</label>
-									<text id="conditionID">
-				-CONDITION-
-			</text>
-								</div>
-								<div class="form-group">
-									<label for="donatedTo">Donated To</label>
-									<text id="patientID">
-				-Patient Name-
-			</text>
+									<label for="donatedTo">Donated To:</label>
+									<p>
+										<span id="patientID">N/A</span>
+									</p>
 								</div>
 							</form>
 						</div>
@@ -212,7 +218,7 @@
 					<span id="outputText">No actions yet.</span>
 				</div>
 			</div>
-			<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"/>
-			<script src="myScript.js"/>
+			<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+			<script src="myScript.js"></script>
 		</body>
 	</html>
