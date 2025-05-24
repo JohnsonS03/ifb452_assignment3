@@ -1,4 +1,4 @@
-**GITHUB**: https://github.com/JohnsonS03/ifb452_assignment3.git
+**GITHUB**: https://github.com/JohnsonS03/ifb452_assignment3.git<br/>
 **JS DOCUMENTATION**: https://github.com/JohnsonS03/ifb452_assignment3/blob/main/frontend/out/index.html
 
 ### Node.js server
