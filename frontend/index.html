@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Organ Donation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f5f5f5;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .left-column,
+    .right-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+	.number-box {
+  background-color: #f1f8e9;
+  border: 2px solid #8bc34a;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #33691e;
+  margin-bottom: 10px;
+}
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    header {
+      display: block;
+      font-weight: bold;
+      font-size:25px;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .button-group {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 12px;
+      margin: 5px 4px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #output {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e0f7fa;
+      border: 1px solid #00acc1;
+      border-radius: 5px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Organ Donation Form</h2>
+
+  <div class="container">
+    <!-- Left Column -->
+    <div class="left-column">
+
+      <div class="form-container">
+        <header for="address">Current Address:</header>
+        <select>
+        </select>
+      </div>
+
+      <div class="form-container">
+        <header for="doner">Doner:</header>
+        <label for="donorName">Name</label>
+        <input type="text" id="donerName" required>
+
+        <div class="button-group">
+          <button onclick="setName()+('ConsentToAgree')">ConsentToAgree</button>
+        </div>
+      </div>
+
+	   <div class="form-container">
+        <header for="healthcare">Healthcare:</header>
+		<div class="number-box">
+		 <div class="number-display" id="numberDisplay">0</div>
+		</div>
+
+		 <select id="patientList">
+			 <option value="">--Requests--</option>
+   
+		</select>
+
+        <div class="button-group">
+          <button onclick="decrementNumber()+handleAction('Approve')">Approve</button>
+        </div>
+
+      </div>
+
+	   <div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
+
+	  
+
+
+	 
+
+
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+		<div class="form-container">
+        <header for="specialist">Specialist:</header>
+        <label for="condition">Condition</label>
+        <select id="condition">
+			 <option value="">--Select--</option>
+    <option value="Great">Great</option>
+    <option value="Good">Good</option>
+    <option value="Average">Average</option>
+    <option value="Bad">Bad</option>
+		</select>
+
+        <div class="button-group">
+          <button onclick="setCondition()+organIncrement()+incrementNumber()+handleAction('Evaluate')">Evaluate</button>
+        </div>
+      </div>
+
+	  <div class="form-container">
+        <header for="practitioner">Practitioner:</header>
+        <label for="patientName">Patient Name</label>
+		 <input type="text" id="patientName">
+            <div class="button-group">
+			<button onclick="addName()+setPatient()+handleAction('Assign')">Assign</button>
+          
+        </div>
+      </div>
+
+	   <div class="form-container">
+        <header for="reception">Reception:</header>
+        
+
+        <div class="button-group">
+          <button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
+        </div>    
+	  </div>
+
+
+
+      <div class="form-container">
+        <form id="organForm">
+          <div class="form-group">
+            <label for="organId">Organ ID:</label>
+			<text id="organAdd">
+				-Organ ID-
+			</text>
+          </div>
+          <div class="form-group">
+            <label for="donor">Donor</label>
+           <text id="nameID">
+				-NAME-
+			</text>
+          </div>
+          <div class="form-group">
+            <label for="dateDonated">Date Donated</label>
+            <div id="dateDisplay"></div>
+          </div>
+          <div class="form-group">
+            <label for="condition">Condition</label>
+            <text id="conditionID">
+				-CONDITION-
+			</text>
+          </div>
+          <div class="form-group">
+            <label for="donatedTo">Donated To</label>
+            <text id="patientID">
+				-Patient Name-
+			</text>
+          </div>
+
+         
+        </form>
+
+       
+      </div>
+
+    </div>
+  </div>
+
+  <div id="output">
+    <strong>Output:</strong> <span id="outputText">No actions yet.</span>
+    
+  </div>
+  </div>
+
+  <script>
+
+	let currentNumber = 0;
+	let organCount = 0
+
+  function incrementNumber() {
+    currentNumber++;
+    document.getElementById('numberDisplay').textContent = currentNumber;
+  }
+  function decrementNumber(){
+	if (currentNumber>0){
+	currentNumber--
+	}
+	document.getElementById('numberDisplay').textContent = currentNumber;
+  }
+
+   function organIncrement() {
+    organCount++;
+    document.getElementById('organAdd').textContent = organCount;
+  }
+
+
+  function setName(){
+	const name = document.getElementById("donerName").value;
+      document.getElementById("nameID").textContent = name;
+
+  }
+  function setCondition(){
+	const condition = document.getElementById("condition").value;
+      document.getElementById("conditionID").textContent = condition
+
+  }
+
+  function setPatient(){
+	const name = document.getElementById("patientName").value;
+      document.getElementById("patientID").textContent = name;
+
+  }
+    function showFinish() {
+      const finish = document.getElementById("finishMessage");
+      finish.style.opacity = "1";                      // Show it
+      finish.style.transition = "opacity 1s";          // Fade speed
+
+      // Start fading out after 2 seconds
+      setTimeout(() => {
+        finish.style.opacity = "0";
+      }, 1000);
+    }
+
+     function addName() {
+      const input = document.getElementById("patientName");
+      const dropdown = document.getElementById("patientList");
+      const name = input.value.trim();
+
+      if (name !== "") {
+        const option = document.createElement("option");
+        option.text = name;
+        dropdown.add(option);
+        input.value = ""; // Clear input
+      }
+    }
+
+     const today = new Date();
+    const formattedDate = today.toLocaleDateString(); // e.g. "5/21/2025"
+    document.getElementById("dateDisplay").textContent = formattedDate;
+
+  
+    const form = document.getElementById('organForm');
+    const outputText = document.getElementById('outputText');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const data = {
+        organId: form.organId.value,
+        donor: form.donor.value,
+        dateDonated: form.dateDonated.value,
+        condition: form.condition.value,
+        donatedTo: form.donatedTo.value,
+      };
+
+      outputText.textContent = `Submitted: ${JSON.stringify(data, null, 2)}`;
+    });
+
+    function handleAction(actionName) {
+      outputText.textContent = `${actionName} button clicked.`;
+    }
+
+	
+  </script>
+
+</body>
+</html>
