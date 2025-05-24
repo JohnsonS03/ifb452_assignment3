@@ -137,48 +137,6 @@
 						</div>
 					</div>
 					<div class="form-container">
-        <header for="specialist">Approve Status:</header>
-        <label for="patient Name">Patient:</label>
-
-        <select id="requestID">
-        <option value="">--Select a Patient--</option>
-        </select>
-
-        <label for="status">Status:</label>
-        <text id="statusID">N/A</text>
-		
-      </div>
-					<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
-				</div>
-				<!-- Right Column -->
-				<div class="right-column">
-					<div class="form-container">
-						<header for="healthcare">Healthcare:</header>
-						<div class="number-box">
-							<div class="number-display" id="numberDisplay">0</div>
-						</div>
-						<select id="requestSelect">
-							<option value="0">--Requests--</option>
-						</select>
-						<div class="button-group">
-							<button onclick="approveRequest()">Approve</button>
-						</div>
-					</div>
-					<div class="form-container">
-						<header for="practitioner">Practitioner:</header>
-						<label for="patientName">Patient Name</label>
-						<input type="text" id="patientName">
-							<div class="button-group">
-								<button onclick="createRequest()">Request</button>
-							</div>
-						</div>
-						<div class="form-container">
-							<header for="reception">Reception:</header>
-							<div class="button-group">
-								<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
-							</div>
-						</div>
-						<div class="form-container">
 							<form id="organForm">
 								<div class="form-group">
 									<label for="organ">Organ ID:</label>
@@ -211,12 +169,54 @@
 								</div>
 							</form>
 						</div>
+						
 					</div>
+					<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
 				</div>
-				<div id="output">
-					<strong>Output:</strong>
-					<span id="outputText">No actions yet.</span>
+				<!-- Right Column -->
+				<div class="right-column">
+					<div class="form-container">
+						<header for="healthcare">Healthcare:</header>
+						<div class="number-box">
+							<div class="number-display" id="numberDisplay">0</div>
+						</div>
+						<select id="requestSelect">
+							<option value="0">--Requests--</option>
+						</select>
+						<div class="button-group">
+							<button onclick="approveRequest()">Approve</button>
+						</div>
+					</div>
+					<div class="form-container">
+						<header for="practitioner">Practitioner:</header>
+						<label for="patientName">Patient Name</label>
+						<input type="text" id="patientName">
+							<div class="button-group">
+								<button onclick="createRequest()">Request</button>
+							</div>
+						</div>
+						<div class="form-container">
+							<header for="reception">Reception:</header>
+							<div class="button-group">
+								<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
+							</div>
+						</div>
+						
+					<div class="form-container">
+        <header for="specialist">Approve Status:</header>
+        <label for="patient Name">Patient:</label>
+
+        <select id="requestID">
+        <option value="">--Requests--</option>
+        </select>
+		<label for="status">Status:</label>
+									<p>
+										<span id="statusID">N/A</span>
+									</p>
+		
+      </div>
 				</div>
+				
 			</div>
 			<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
 			<script src="myScript.js"></script>
