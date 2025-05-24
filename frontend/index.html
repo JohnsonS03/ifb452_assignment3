@@ -109,8 +109,8 @@
     <div class="left-column">
 
       <div class="form-container">
-        <header for="address">Current Address:</header>
-        <select>
+        <header for="accountSelect">Current Address:</header>
+        <select id="accountSelect">
         </select>
       </div>
 
@@ -120,7 +120,7 @@
         <input type="text" id="donerName" required>
 
         <div class="button-group">
-          <button onclick="incrementOrgan()+setName()+handleAction('ConsentToAgree')">ConsentToAgree</button>
+          <button onclick="addDoner()">ConsentToAgree</button>
         </div>
       </div>
 
@@ -128,21 +128,21 @@
 
       <div class="form-container">
         <header for="specialist">Specialist:</header>
-        <label for="condition">Select an Organ ID to Evaluate</label>
-        <select id="organEva">
+        <label for="organSelect">Select an Organ ID to Evaluate</label>
+        <select id="organSelect">
 				<option value="">-Organ ID-</option>
       </select>
-        <label for="condition">Condition</label>
-        <select id="condition">
-			 <option value="">--Select--</option>
-    <option value="Great">Great</option>
-    <option value="Good">Good</option>
-    <option value="Average">Average</option>
-    <option value="Bad">Bad</option>
+        <label for="conditionSelect">Condition</label>
+        <select id="conditionSelect">
+			 <option value="0">--Select--</option>
+    <option value="1">Great</option>
+    <option value="2">Good</option>
+    <option value="3">Average</option>
+    <option value="4">Bad</option>
 		</select>
 
         <div class="button-group">
-          <button onclick="setCondition()+incrementNumber()+handleAction('Evaluate')">Evaluate</button>
+          <button id="button" onclick="evaluateOrgan()">Evaluate</button>
         </div>
       </div>
 
@@ -171,17 +171,13 @@
 		 <div class="number-display" id="numberDisplay">0</div>
 		</div>
 
-		<select id="pList">
+		<select id="requestSelect">
         <option value="">--Requests--</option>
         </select>
 
-        <div class="button-group">
-          <button onclick="selectPatient()+handleAction('Select')">Select</button>
-        </div>
-
 
         <div class="button-group">
-          <button onclick="setPatient()+approved()+decrementNumber()+handleAction('Approve')">Approve</button>
+          <button onclick="approveRequest()">Approve</button>
         </div>
 
       </div>
@@ -191,7 +187,7 @@
         <label for="patientName">Patient Name</label>
 		 <input type="text" id="patientName">
             <div class="button-group">
-			<button onclick="addName()+handleAction('Assign')">Assign</button>
+			<button onclick="createRequest()">Request</button>
           
         </div>
       </div>
@@ -253,141 +249,8 @@
   </div>
   </div>
 
-  <script>
-
-	let currentNumber = 0;
-	let organCount = 0;
-
-//ConsentToAgree
-  function setName(){
-	const name = document.getElementById("donerName").value;
-      document.getElementById("nameID").textContent = name;
-  }
-
-  function incrementOrgan() {
-    organCount++;
-   
-      const list1 = document.getElementById("organAdd");
-      const list2 = document.getElementById("organEva");
-
-    const option1 = document.createElement("option");
-    const option2 = document.createElement("option");
-    option1.text = organCount;
-    option2.text = organCount;
-    option1.value = organCount;
-    option2.value = organCount;
-
-    list1.add(option1);
-    list2.add(option2);
-    
-    
-    
-  
-
-  }
-// Evaluate
-  function incrementNumber() {
-    currentNumber++;
-    document.getElementById('numberDisplay').textContent = currentNumber;
-    
-  }
-
-   function setCondition(){
-	const condition = document.getElementById("condition").value;
-      document.getElementById("conditionID").textContent = condition
-
-  }
-//Select
- function selectPatient(){
-	const name = document.getElementById("pList").value;
-      document.getElementById("nameStatus").textContent = name;
-    
- }
-
-
-//Approve
-  function decrementNumber(){
-	if (currentNumber>0){
-	currentNumber--
-	}
-	document.getElementById('numberDisplay').textContent = currentNumber;
-  }
-
-  function approved(){
-	const name = "APPROVED";
-      document.getElementById("approveStatus").textContent = name;
-    
- }
- 
- function setPatient(){
-	const name = document.getElementById("pList").value;
-      document.getElementById("patientID").textContent = name;
-
-  }
-
-
-
-//Assign
- function addName() {
-      const input = document.getElementById("patientName");
-      const list = document.getElementById("pList");
-      
-      const name = input.value.trim();
-
-      if (name !== "") {
-        const option = document.createElement("option");
-        option.text = name;
-        list.add(option);
-       
-        input.value = ""; // Clear input
-      }
-
-    }
-
-
-
-//Generate Invoice
-    function showFinish() {
-      const finish = document.getElementById("finishMessage");
-      finish.style.opacity = "1";                      // Show it
-      finish.style.transition = "opacity 1s";          // Fade speed
-
-      // Start fading out after 2 seconds
-      setTimeout(() => {
-        finish.style.opacity = "0";
-      }, 1000);
-    }
-
-    
-//SYSTEM DATE
-     const today = new Date();
-    const formattedDate = today.toLocaleDateString(); // e.g. "5/21/2025"
-    document.getElementById("dateDisplay").textContent = formattedDate;
-
-  
-    const form = document.getElementById('organForm');
-    const outputText = document.getElementById('outputText');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const data = {
-        organId: form.organId.value,
-        donor: form.donor.value,
-        dateDonated: form.dateDonated.value,
-        condition: form.condition.value,
-        donatedTo: form.donatedTo.value,
-      };
-
-      outputText.textContent = `Submitted: ${JSON.stringify(data, null, 2)}`;
-    });
-
-    function handleAction(actionName) {
-      outputText.textContent = `${actionName} button clicked.`;
-    }
-
-	
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+  <script src="myScript.js"></script>
 
 </body>
 </html>
