@@ -1,0 +1,246 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"name": "createRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getOrgan",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ITokenCreate.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getRequest",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assignedOrgan",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ITokenCreate.RequestId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ITokenCreate.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "updateOrgan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "assignedOrgan",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct ITokenCreate.RequestId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "updateRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"AssignContract.sol": "ITokenCreate"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"AssignContract.sol": {
+			"keccak256": "0x1e4c6930b1fd5ec2871cb3a5ed973427a1490e6acd5a686356348ebfa2c7c332",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3dd39f4e6e1badc5abc7d414bbc722fd9f4c9910da0e79c6de2a9cd7709b4f8c",
+				"dweb:/ipfs/Qmb8TE8VeFewLVPtM5rhZGuNq8Qgx9sP9gWK7JYsypbKv9"
+			]
+		}
+	},
+	"version": 1
+}

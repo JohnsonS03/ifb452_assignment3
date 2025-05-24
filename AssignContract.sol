@@ -13,8 +13,16 @@ interface ITokenCreate {
         bool isAssigned;
     }
 
+    struct RequestId{
+        string patientName;
+        uint256 assignedOrgan;
+    }
+
     function getOrgan(uint256) external view returns (OrganId memory);
     function updateOrgan(uint256, OrganId memory) external;
+    function getRequest(uint256) external view returns (RequestId memory);
+    function updateRequest(uint256, RequestId memory) external;
+    function createRequest(string memory, bool) external ;
 }
 
 contract AssignContract {
@@ -31,11 +39,15 @@ contract AssignContract {
         _;
     }
 
-    function assign(uint256 organId, string memory patient) public onlyDoctor {
-        ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
-        require(o.isStored, "Not stored");
-        o.donatedTo = patient;
-        o.isAssigned = true;
-        tokenContract.updateOrgan(organId, o);
+/**
+* @notice Creates a new request.
+*
+* @dev This function creates a new RequestId struct with provided patient details and calls
+the createRequest method of ITokenCreate contract, passing in patient.
+*
+* @param patient The name of the patient for whom this request is being created.
+*/
+    function createRequest(string memory patient) public onlyDoctor {
+        tokenContract.createRequest(patient, false);
     }
 }

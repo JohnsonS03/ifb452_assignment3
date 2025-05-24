@@ -9,12 +9,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "_specialist",
+						"name": "_donor",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "_tokenAddr",
+						"name": "_tokenCreate",
 						"type": "address"
 					}
 				],
@@ -24,24 +24,24 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "organId",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
 					},
 					{
-						"internalType": "string",
-						"name": "condition",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "_date",
+						"type": "uint256"
 					}
 				],
-				"name": "evaluate",
+				"name": "consent",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "specialist",
+				"name": "donor",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -54,7 +54,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "tokenContract",
+				"name": "tokenCreate",
 				"outputs": [
 					{
 						"internalType": "contract ITokenCreate",
@@ -79,7 +79,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"EvaluateContract.sol": "EvaluateContract"
+			"ConsentContract.sol": "ConsentContract"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -93,12 +93,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"EvaluateContract.sol": {
-			"keccak256": "0xc4c1f0e168608f9bc0ac49e81b50e0e79cf15cdfdae43e67c01331d403af8823",
+		"ConsentContract.sol": {
+			"keccak256": "0xa9d976637385fb806ac601bf4ff57065031e056caab5bb5b85d6386764fb7649",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bc3b15097c83b2d55e82daf705d968a13c421dc2946b96f9e45214457f794e65",
-				"dweb:/ipfs/QmasNb6NPwFfEpGhoVg9ve6cgWH48QEMeEQQNQcRpGqbzS"
+				"bzz-raw://2e346c23410b4ab3f22bf525f068dff0c9bd7e76e2dbac0a15b1236f91454966",
+				"dweb:/ipfs/QmY29NtkbNk8bugo2XzPzU71off7MRAkjNFdmdjnf6gsdW"
 			]
 		}
 	},

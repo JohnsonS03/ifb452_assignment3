@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -24,17 +24,12 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "organId",
-						"type": "uint256"
-					},
-					{
 						"internalType": "string",
 						"name": "patient",
 						"type": "string"
 					}
 				],
-				"name": "assign",
+				"name": "createRequest",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -57,7 +52,7 @@
 				"name": "tokenContract",
 				"outputs": [
 					{
-						"internalType": "contract ITokenCreateEval",
+						"internalType": "contract ITokenCreate",
 						"name": "",
 						"type": "address"
 					}
@@ -68,12 +63,23 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"createRequest(string)": {
+					"details": "This function creates a new RequestId struct with provided patient details and calls the createRequest method of ITokenCreate contract, passing in patient.",
+					"params": {
+						"patient": "The name of the patient for whom this request is being created."
+					}
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"createRequest(string)": {
+					"notice": "Creates a new request."
+				}
+			},
 			"version": 1
 		}
 	},
@@ -81,7 +87,7 @@
 		"compilationTarget": {
 			"AssignContract.sol": "AssignContract"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -94,11 +100,11 @@
 	},
 	"sources": {
 		"AssignContract.sol": {
-			"keccak256": "0x6301d300140a1f7a03b5669b665df52ee4a6d38d4c7f74f5252e164ebb302b03",
+			"keccak256": "0x1e4c6930b1fd5ec2871cb3a5ed973427a1490e6acd5a686356348ebfa2c7c332",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://76fcc80b28df42f2b645cb22688f119b86bc08b7b75d40b725224c0c5e2b17e6",
-				"dweb:/ipfs/QmPzKuR5sAdaPfNmu4pzFMhw3NrBAbfgVtg9V3ohHri8Ps"
+				"bzz-raw://3dd39f4e6e1badc5abc7d414bbc722fd9f4c9910da0e79c6de2a9cd7709b4f8c",
+				"dweb:/ipfs/Qmb8TE8VeFewLVPtM5rhZGuNq8Qgx9sP9gWK7JYsypbKv9"
 			]
 		}
 	},

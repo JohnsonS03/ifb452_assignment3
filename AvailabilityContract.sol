@@ -13,8 +13,16 @@ interface ITokenCreate {
         bool isAssigned;
     }
 
+    struct RequestId{
+        string patientName;
+        bool isApproved;
+    }
+
     function getOrgan(uint256) external view returns (OrganId memory);
     function updateOrgan(uint256, OrganId memory) external;
+    function getRequest(uint256) external view returns (RequestId memory);
+    function approveRequest(uint256, RequestId memory) external;
+    function createRequest(string memory, bool) external ;
 }
 
 contract AvailableContract {
@@ -31,10 +39,20 @@ contract AvailableContract {
         _;
     }
 
-    function store(uint256 organId) public onlyHealthcare {
-        ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
-        require(o.isEvaluated, "Not evaluated");
-        o.isStored = true;
-        tokenContract.updateOrgan(organId, o);
+    /**
+* @notice Approves a request and assigns an available organ.
+*
+* @dev This function iterates through all organs, finds one that is not assigned,
+has been consented to, evaluated, stored, but still available, updates the
+corresponding OrganId struct with the new donor information and emits an event
+indicating approval of a request. It also increments or decrements counters as needed.
+*
+* @param requestId The unique identifier of the request being approved.
+*/
+    function approveRequest(uint256 requestId) public onlyHealthcare {
+        ITokenCreate.RequestId memory r = tokenContract.getRequest(requestId);
+        require(!r.isApproved, "Request has been approved and assigned an organ");
+        r.isApproved = true;
+        tokenContract.approveRequest(requestId, r);
     }
 }
