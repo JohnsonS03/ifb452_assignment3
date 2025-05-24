@@ -26,10 +26,9 @@ contract TokenCreateContract {
         _;
     }
 
-    function createOrgan(string memory _donerName) external onlyOwner returns (uint256) {
+    function createOrgan(string memory _donerName, uint256 _date) external {
         organCount++;
-        organs[organCount] = OrganId(_donerName, 0, "To be evaluated", "To be assigned", false, false, false, false);
-        return organCount;
+        organs[organCount] = OrganId(_donerName, _date, "To be evaluated", "To be assigned", true, false, false, false);
     }
 
     function getOrgan(uint256 _id) external view returns (OrganId memory) {

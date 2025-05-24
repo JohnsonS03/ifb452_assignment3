@@ -49,31 +49,129 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"createOrgan(string,uint256)": "8af88a5c"
+			"getOrgan(uint256)": "10742b51",
+			"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": "0d47dd26"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [
 				{
-					"internalType": "string",
-					"name": "",
-					"type": "string"
-				},
-				{
 					"internalType": "uint256",
 					"name": "",
 					"type": "uint256"
 				}
 			],
-			"name": "createOrgan",
+			"name": "getOrgan",
 			"outputs": [
 				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "donerName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "dateDonated",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "condition",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "donatedTo",
+							"type": "string"
+						},
+						{
+							"internalType": "bool",
+							"name": "isConsented",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isEvaluated",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isStored",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isAssigned",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ITokenCreate.OrganId",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
 					"internalType": "uint256",
 					"name": "",
 					"type": "uint256"
+				},
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "donerName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "dateDonated",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "condition",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "donatedTo",
+							"type": "string"
+						},
+						{
+							"internalType": "bool",
+							"name": "isConsented",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isEvaluated",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isStored",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isAssigned",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ITokenCreate.OrganId",
+					"name": "",
+					"type": "tuple"
 				}
 			],
+			"name": "updateOrgan",
+			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
 		}

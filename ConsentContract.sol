@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 interface ITokenCreate {
-    function createOrgan(string memory, uint256) external returns (uint256);
+    function createOrgan(string memory, uint256) external;
 }
 
 contract ConsentContract {
