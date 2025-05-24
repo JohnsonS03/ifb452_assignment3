@@ -13,12 +13,22 @@ contract TokenCreateContract {
         bool isAssigned;
     }
 
+    address owner;
     mapping(uint256 => OrganId) public organs;
     uint256 public organCount;
 
-    function createOrgan(string memory _donerName, uint256 _donationDate) external returns (uint256) {
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "only Owner");
+        _;
+    }
+
+    function createOrgan(string memory _donerName) external onlyOwner returns (uint256) {
         organCount++;
-        organs[organCount] = OrganId(_donerName, _donationDate, "To be evaluated", "To be assigned", true, false, false, false);
+        organs[organCount] = OrganId(_donerName, 0, "To be evaluated", "To be assigned", false, false, false, false);
         return organCount;
     }
 

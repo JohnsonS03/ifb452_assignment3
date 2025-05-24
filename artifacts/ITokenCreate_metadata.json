@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "createOrgan",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ConsentContract.sol": "ITokenCreate"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ConsentContract.sol": {
+			"keccak256": "0xe3187a05363e252f80a59b48fdbf8ecf1ac139db5afd82d53932cc438068b827",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://16ebf7bda0fc6658e77152fccf75ba3f9f0b2b3dae899df4ff2454270fe0bba6",
+				"dweb:/ipfs/QmXWo6NUvbMmSsdxC7FinnFN8dGgrNGWao4m577tpQQCBF"
+			]
+		}
+	},
+	"version": 1
+}

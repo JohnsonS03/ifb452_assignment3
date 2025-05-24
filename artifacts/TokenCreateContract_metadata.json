@@ -6,16 +6,16 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
 						"name": "_donerName",
 						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_donationDate",
-						"type": "uint256"
 					}
 				],
 				"name": "createOrgan",
@@ -246,11 +246,11 @@
 	},
 	"sources": {
 		"OrganCreateContract.sol": {
-			"keccak256": "0xfc296eb4586a23e3dcac1f57e02fd38d695bf5fb3d72c25417e0582a0fdb3146",
+			"keccak256": "0x83d293cd2cab889cc031157a412ea768e248d87d16cd7c9a02f336f0e54a5216",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://90ce7dfafd537f918530863f36df15d44b60bbcfe875fc6f89fe213a074c1299",
-				"dweb:/ipfs/QmYjx5Rh25teU94Y9TpS4Y9SvujBnw6HMfvjiawb8hQfyU"
+				"bzz-raw://dd464822d1dd18dc117e39dd6b707c9789518ba02e8b8d549ca0c5cbed4f2da1",
+				"dweb:/ipfs/QmbHkhzzCAgtvTYU42ZrtBzFBrhZmUYXUydENazjq65ETX"
 			]
 		}
 	},
