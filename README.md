@@ -1,5 +1,4 @@
 **GITHUB**: https://github.com/JohnsonS03/ifb452_assignment3.git<br/>
-**JS DOCUMENTATION**: https://github.com/JohnsonS03/ifb452_assignment3/blob/main/frontend/out/index.html
 
 ### Node.js server
 Download the [Node.js](https://nodejs.org/en/download). <br/>
