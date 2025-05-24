@@ -120,42 +120,18 @@
         <input type="text" id="donerName" required>
 
         <div class="button-group">
-          <button onclick="setName()+('ConsentToAgree')">ConsentToAgree</button>
+          <button onclick="incrementOrgan()+setName()+handleAction('ConsentToAgree')">ConsentToAgree</button>
         </div>
       </div>
-
-	   <div class="form-container">
-        <header for="healthcare">Healthcare:</header>
-		<div class="number-box">
-		 <div class="number-display" id="numberDisplay">0</div>
-		</div>
-
-		 <select id="patientList">
-			 <option value="">--Requests--</option>
-   
-		</select>
-
-        <div class="button-group">
-          <button onclick="decrementNumber()+handleAction('Approve')">Approve</button>
-        </div>
-
-      </div>
-
-	   <div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
 
 	  
 
-
-	 
-
-
-    </div>
-
-    <!-- Right Column -->
-    <div class="right-column">
-
-		<div class="form-container">
+      <div class="form-container">
         <header for="specialist">Specialist:</header>
+        <label for="condition">Select an Organ ID to Evaluate</label>
+        <select id="organEva">
+				<option value="">-Organ ID-</option>
+      </select>
         <label for="condition">Condition</label>
         <select id="condition">
 			 <option value="">--Select--</option>
@@ -166,8 +142,48 @@
 		</select>
 
         <div class="button-group">
-          <button onclick="setCondition()+organIncrement()+incrementNumber()+handleAction('Evaluate')">Evaluate</button>
+          <button onclick="setCondition()+incrementNumber()+handleAction('Evaluate')">Evaluate</button>
         </div>
+      </div>
+
+
+      <div class="form-container">
+        <header for="specialist">Approve Status:</header>
+        <label for="patient Name">Patient Name</label>
+        <text id="nameStatus">-Select a Name in Healthcare-</text>
+
+        <label for="status">Status</label>
+        <text id="approveStatus">-Not Yet Approved-</text>
+		
+      </div>
+
+	   <div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
+
+
+    </div>
+
+    <!-- Right Column -->
+    <div class="right-column">
+
+       <div class="form-container">
+        <header for="healthcare">Healthcare:</header>
+		<div class="number-box">
+		 <div class="number-display" id="numberDisplay">0</div>
+		</div>
+
+		<select id="pList">
+        <option value="">--Requests--</option>
+        </select>
+
+        <div class="button-group">
+          <button onclick="selectPatient()+handleAction('Select')">Select</button>
+        </div>
+
+
+        <div class="button-group">
+          <button onclick="setPatient()+approved()+decrementNumber()+handleAction('Approve')">Approve</button>
+        </div>
+
       </div>
 
 	  <div class="form-container">
@@ -175,7 +191,7 @@
         <label for="patientName">Patient Name</label>
 		 <input type="text" id="patientName">
             <div class="button-group">
-			<button onclick="addName()+setPatient()+handleAction('Assign')">Assign</button>
+			<button onclick="addName()+handleAction('Assign')">Assign</button>
           
         </div>
       </div>
@@ -195,9 +211,9 @@
         <form id="organForm">
           <div class="form-group">
             <label for="organId">Organ ID:</label>
-			<text id="organAdd">
-				-Organ ID-
-			</text>
+			<select id="organAdd">
+				<option value="">-Organ ID-</option>
+      </select>
           </div>
           <div class="form-group">
             <label for="donor">Donor</label>
@@ -240,12 +256,56 @@
   <script>
 
 	let currentNumber = 0;
-	let organCount = 0
+	let organCount = 0;
 
+//ConsentToAgree
+  function setName(){
+	const name = document.getElementById("donerName").value;
+      document.getElementById("nameID").textContent = name;
+  }
+
+  function incrementOrgan() {
+    organCount++;
+   
+      const list1 = document.getElementById("organAdd");
+      const list2 = document.getElementById("organEva");
+
+    const option1 = document.createElement("option");
+    const option2 = document.createElement("option");
+    option1.text = organCount;
+    option2.text = organCount;
+    option1.value = organCount;
+    option2.value = organCount;
+
+    list1.add(option1);
+    list2.add(option2);
+    
+    
+    
+  
+
+  }
+// Evaluate
   function incrementNumber() {
     currentNumber++;
     document.getElementById('numberDisplay').textContent = currentNumber;
+    
   }
+
+   function setCondition(){
+	const condition = document.getElementById("condition").value;
+      document.getElementById("conditionID").textContent = condition
+
+  }
+//Select
+ function selectPatient(){
+	const name = document.getElementById("pList").value;
+      document.getElementById("nameStatus").textContent = name;
+    
+ }
+
+
+//Approve
   function decrementNumber(){
 	if (currentNumber>0){
 	currentNumber--
@@ -253,28 +313,40 @@
 	document.getElementById('numberDisplay').textContent = currentNumber;
   }
 
-   function organIncrement() {
-    organCount++;
-    document.getElementById('organAdd').textContent = organCount;
-  }
-
-
-  function setName(){
-	const name = document.getElementById("donerName").value;
-      document.getElementById("nameID").textContent = name;
-
-  }
-  function setCondition(){
-	const condition = document.getElementById("condition").value;
-      document.getElementById("conditionID").textContent = condition
-
-  }
-
-  function setPatient(){
-	const name = document.getElementById("patientName").value;
+  function approved(){
+	const name = "APPROVED";
+      document.getElementById("approveStatus").textContent = name;
+    
+ }
+ 
+ function setPatient(){
+	const name = document.getElementById("pList").value;
       document.getElementById("patientID").textContent = name;
 
   }
+
+
+
+//Assign
+ function addName() {
+      const input = document.getElementById("patientName");
+      const list = document.getElementById("pList");
+      
+      const name = input.value.trim();
+
+      if (name !== "") {
+        const option = document.createElement("option");
+        option.text = name;
+        list.add(option);
+       
+        input.value = ""; // Clear input
+      }
+
+    }
+
+
+
+//Generate Invoice
     function showFinish() {
       const finish = document.getElementById("finishMessage");
       finish.style.opacity = "1";                      // Show it
@@ -286,19 +358,8 @@
       }, 1000);
     }
 
-     function addName() {
-      const input = document.getElementById("patientName");
-      const dropdown = document.getElementById("patientList");
-      const name = input.value.trim();
-
-      if (name !== "") {
-        const option = document.createElement("option");
-        option.text = name;
-        dropdown.add(option);
-        input.value = ""; // Clear input
-      }
-    }
-
+    
+//SYSTEM DATE
      const today = new Date();
     const formattedDate = today.toLocaleDateString(); // e.g. "5/21/2025"
     document.getElementById("dateDisplay").textContent = formattedDate;
