@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Organ Donation Form</title>
-  <style>
+	<head>
+		<meta charset="UTF-8">
+			<title>Organ Donation Form</title>
+			<style>
     body {
       font-family: Arial, sans-serif;
       margin: 30px;
@@ -99,158 +99,120 @@
       min-height: 50px;
     }
   </style>
-</head>
-<body>
-
-  <h2>Organ Donation Form</h2>
-
-  <div class="container">
-    <!-- Left Column -->
-    <div class="left-column">
-
-      <div class="form-container">
-        <header for="accountSelect">Current Address:</header>
-        <select id="accountSelect">
+		</head>
+		<body>
+			<h2>Organ Donation Form</h2>
+			<div class="container">
+				<!-- Left Column -->
+				<div class="left-column">
+					<div class="form-container">
+						<header for="accountSelect">Current Address:</header>
+						<select id="accountSelect">
         </select>
-      </div>
-
-      <div class="form-container">
-        <header for="doner">Doner:</header>
-        <label for="donorName">Name</label>
-        <input type="text" id="donerName" required>
-
-        <div class="button-group">
-          <button onclick="addDoner()">ConsentToAgree</button>
-        </div>
-      </div>
-
-	  
-
-      <div class="form-container">
-        <header for="specialist">Specialist:</header>
-        <label for="organSelect">Select an Organ ID to Evaluate</label>
-        <select id="organSelect">
-				<option value="">-Organ ID-</option>
-      </select>
-        <label for="conditionSelect">Condition</label>
-        <select id="conditionSelect">
-			 <option value="0">--Select--</option>
-    <option value="1">Great</option>
-    <option value="2">Good</option>
-    <option value="3">Average</option>
-    <option value="4">Bad</option>
-		</select>
-
-        <div class="button-group">
-          <button id="button" onclick="evaluateOrgan()">Evaluate</button>
-        </div>
-      </div>
-
-
-      <div class="form-container">
-        <header for="specialist">Approve Status:</header>
-        <label for="patient Name">Patient Name</label>
-        <text id="nameStatus">-Select a Name in Healthcare-</text>
-
-        <label for="status">Status</label>
-        <text id="approveStatus">-Not Yet Approved-</text>
-		
-      </div>
-
-	   <div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
-
-
-    </div>
-
-    <!-- Right Column -->
-    <div class="right-column">
-
-       <div class="form-container">
-        <header for="healthcare">Healthcare:</header>
-		<div class="number-box">
-		 <div class="number-display" id="numberDisplay">0</div>
-		</div>
-
-		<select id="requestSelect">
-        <option value="">--Requests--</option>
-        </select>
-
-
-        <div class="button-group">
-          <button onclick="approveRequest()">Approve</button>
-        </div>
-
-      </div>
-
-	  <div class="form-container">
-        <header for="practitioner">Practitioner:</header>
-        <label for="patientName">Patient Name</label>
-		 <input type="text" id="patientName">
-            <div class="button-group">
-			<button onclick="createRequest()">Request</button>
-          
-        </div>
-      </div>
-
-	   <div class="form-container">
-        <header for="reception">Reception:</header>
-        
-
-        <div class="button-group">
-          <button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
-        </div>    
-	  </div>
-
-
-
-      <div class="form-container">
-        <form id="organForm">
-          <div class="form-group">
-            <label for="organId">Organ ID:</label>
-			<select id="organAdd">
-				<option value="">-Organ ID-</option>
-      </select>
-          </div>
-          <div class="form-group">
-            <label for="donor">Donor</label>
-           <text id="nameID">
+					</div>
+					<div class="form-container">
+						<header for="doner">Doner:</header>
+						<label for="donorName">Name</label>
+						<input type="text" id="donerName" required>
+						<div class="button-group">
+							<button onclick="addDoner()">ConsentToAgree</button>
+						</div>
+					</div>
+					<div class="form-container">
+						<header for="specialist">Specialist:</header>
+						<label for="organSelect">Select an Organ ID to Evaluate</label>
+						<select id="organSelect">
+							<option value="">-Organ ID-</option>
+						</select>
+						<label for="conditionSelect">Condition</label>
+						<select id="conditionSelect">
+							<option value="0">--Select--</option>
+							<option value="1">Great</option>
+							<option value="2">Good</option>
+							<option value="3">Average</option>
+							<option value="4">Bad</option>
+						</select>
+						<div class="button-group">
+							<button id="button" onclick="evaluateOrgan()">Evaluate</button>
+						</div>
+					</div>
+					<div class="form-container">
+						<header for="specialist">Approve Status:</header>
+						<label for="patient Name">Patient Name</label>
+						<text id="nameStatus">-Select a Name in Healthcare-</text>
+						<label for="status">Status</label>
+						<text id="approveStatus">-Not Yet Approved-</text>
+					</div>
+					<div id="finishMessage" style="opacity: 0; font-size: 100px;">Finish</div>
+				</div>
+				<!-- Right Column -->
+				<div class="right-column">
+					<div class="form-container">
+						<header for="healthcare">Healthcare:</header>
+						<div class="number-box">
+							<div class="number-display" id="numberDisplay">0</div>
+						</div>
+						<select id="requestSelect">
+							<option value="">--Requests--</option>
+						</select>
+						<div class="button-group">
+							<button onclick="approveRequest()">Approve</button>
+						</div>
+					</div>
+					<div class="form-container">
+						<header for="practitioner">Practitioner:</header>
+						<label for="patientName">Patient Name</label>
+						<input type="text" id="patientName">
+							<div class="button-group">
+								<button onclick="createRequest()">Request</button>
+							</div>
+						</div>
+						<div class="form-container">
+							<header for="reception">Reception:</header>
+							<div class="button-group">
+								<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
+							</div>
+						</div>
+						<div class="form-container">
+							<form id="organForm">
+								<div class="form-group">
+									<label for="organId">Organ ID:</label>
+									<select id="organAdd">
+										<option value="">-Organ ID-</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="donor">Donor</label>
+									<text id="nameID">
 				-NAME-
 			</text>
-          </div>
-          <div class="form-group">
-            <label for="dateDonated">Date Donated</label>
-            <div id="dateDisplay"></div>
-          </div>
-          <div class="form-group">
-            <label for="condition">Condition</label>
-            <text id="conditionID">
+								</div>
+								<div class="form-group">
+									<label for="dateDonated">Date Donated</label>
+									<div id="dateDisplay"/>
+								</div>
+								<div class="form-group">
+									<label for="condition">Condition</label>
+									<text id="conditionID">
 				-CONDITION-
 			</text>
-          </div>
-          <div class="form-group">
-            <label for="donatedTo">Donated To</label>
-            <text id="patientID">
+								</div>
+								<div class="form-group">
+									<label for="donatedTo">Donated To</label>
+									<text id="patientID">
 				-Patient Name-
 			</text>
-          </div>
-
-         
-        </form>
-
-       
-      </div>
-
-    </div>
-  </div>
-
-  <div id="output">
-    <strong>Output:</strong> <span id="outputText">No actions yet.</span>
-    
-  </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
-  <script src="myScript.js"></script>
-
-</body>
-</html>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div id="output">
+					<strong>Output:</strong>
+					<span id="outputText">No actions yet.</span>
+				</div>
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"/>
+			<script src="myScript.js"/>
+		</body>
+	</html>
