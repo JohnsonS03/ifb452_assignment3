@@ -1,0 +1,167 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "getOrgan",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ITokenContract.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "donerName",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dateDonated",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "condition",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "donatedTo",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "isConsented",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isEvaluated",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isStored",
+								"type": "bool"
+							},
+							{
+								"internalType": "bool",
+								"name": "isAssigned",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct ITokenContract.OrganId",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"name": "updateOrgan",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"EvaluateContract.sol": "ITokenContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"EvaluateContract.sol": {
+			"keccak256": "0x3848e4dd6d4f47dd5051e006dcac6754ea6da273c397cb53e27f83f027d3fcb9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://757f9499ac67a8b6888b6090a09e1ef572a614b996d6cd16a2a3c436e1336015",
+				"dweb:/ipfs/QmVn5pKYgbbFYBJQS2g69mxDAGEYTadALZ1WZnAvfLqeeH"
+			]
+		}
+	},
+	"version": 1
+}

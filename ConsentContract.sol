@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-interface ITokenCreate {
+interface ITokenContract {
     function createOrgan(string memory, uint256) external;
 }
 
 contract ConsentContract {
     address public donor;
-    ITokenCreate public tokenCreate;
+    ITokenContract public tokenCreate;
 
     constructor(address _donor, address _tokenCreate) {
         donor = _donor;
-        tokenCreate = ITokenCreate(_tokenCreate);
+        tokenCreate = ITokenContract(_tokenCreate);
     }
 
     modifier onlyDonor() {

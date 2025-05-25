@@ -65,7 +65,7 @@
 				"name": "tokenContract",
 				"outputs": [
 					{
-						"internalType": "contract ITokenCreate",
+						"internalType": "contract ITokenContract",
 						"name": "",
 						"type": "address"
 					}
@@ -113,11 +113,11 @@
 	},
 	"sources": {
 		"AvailabilityContract.sol": {
-			"keccak256": "0x30d65bee642a7557b3fe2dfa84dc9912e9ac11ffdae0ace5b72a5151a9c326d0",
+			"keccak256": "0x9555a3e2e8b1ef22bc194b64fa58227da166d8b2d3f3e1c3402755cd70bc5496",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7052f9e0977ece00b319f54ec293d27f29a0799d24fe445db92f75056874a231",
-				"dweb:/ipfs/QmdJgm1HFDbvhArsk5b6hkuFNSnujFndj7653eyDk1Tx8f"
+				"bzz-raw://f7ff4103b6b2fb37d79deeb01229f15de427bceb65d0c4a8700902dc7b5aca82",
+				"dweb:/ipfs/QmXmNrrKFPXjJnEyB63D7UYv4GMRKbYXjqgQkHWLrGTfA3"
 			]
 		}
 	},
