@@ -9,7 +9,7 @@ This application is designed to ensure legal handling of human organs for transp
 • **Specialist** – A High trust stakeholders, responsible for evaluating health and performing procedures. <br/>
 • **Healthcare department** – A high trust stakeholders, responsible for storing, transporting and distribution of the organ.<br/>
 • **Practitioner** – A high trust stakeholder that is responsible for assigning the organ to the patient. Can display Token with its information as proof of authenticity. <br/>
-• **Reception **– A stakeholder that is responsible for providing accurate information and ensure secure medical data handling and documentation for payment.<br/>
+• **Reception**– A stakeholder that is responsible for providing accurate information and ensure secure medical data handling and documentation for payment.<br/>
 <br/>
 
 ## Smart Contracts:<br/>
