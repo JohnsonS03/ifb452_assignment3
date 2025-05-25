@@ -1,4 +1,4 @@
-**GITHUB: [LINK TO REPO](https://github.com/JohnsonS03/ifb452_assignment3.git)**
+**GITHUB: [LINK TO REPO](https://github.com/JohnsonS03/ifb452_assignment3.git)**<br/>
 **SETUP: [SETUP GUIDE](SETUP.md)**
 
 ![image](https://github.com/user-attachments/assets/920bb568-12ac-46ea-a7b5-232d9d218146)<br/>
