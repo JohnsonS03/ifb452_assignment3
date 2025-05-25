@@ -1,5 +1,7 @@
 **GITHUB: [LINK TO REPO](https://github.com/JohnsonS03/ifb452_assignment3.git)**
 
+![image](https://github.com/user-attachments/assets/920bb568-12ac-46ea-a7b5-232d9d218146)<br/>
+
 # OrganChain<br/>
 This application is designed to ensure legal handling of human organs for transplantation. Each organ will have a Token ID that can be viewed by the application regarding its authenticity and information. This Token will be transferred among stakeholders for them to view its information and legality.<br/>
 <br/>
