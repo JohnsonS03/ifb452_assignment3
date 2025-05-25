@@ -10,7 +10,7 @@ const tokenCreateContractABI = [
 			{
 				"indexed": false,
 				"internalType": "string",
-				"name": "doner",
+				"name": "donor",
 				"type": "string"
 			},
 			{
@@ -144,7 +144,7 @@ const tokenCreateContractABI = [
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_donerName",
+				"name": "_donorName",
 				"type": "string"
 			},
 			{
@@ -203,7 +203,7 @@ const tokenCreateContractABI = [
 				"components": [
 					{
 						"internalType": "string",
-						"name": "donerName",
+						"name": "donorName",
 						"type": "string"
 					},
 					{
@@ -306,7 +306,7 @@ const tokenCreateContractABI = [
 		"outputs": [
 			{
 				"internalType": "string",
-				"name": "donerName",
+				"name": "donorName",
 				"type": "string"
 			},
 			{
@@ -409,7 +409,7 @@ const tokenCreateContractABI = [
 				"components": [
 					{
 						"internalType": "string",
-						"name": "donerName",
+						"name": "donorName",
 						"type": "string"
 					},
 					{
@@ -531,7 +531,7 @@ const ConsentContractABI = [
 		"name": "tokenCreate",
 		"outputs": [
 			{
-				"internalType": "contract ITokenCreate",
+				"internalType": "contract ITokenContract",
 				"name": "",
 				"type": "address"
 			}
@@ -612,7 +612,7 @@ const EvaluateContractABI = [
 		"name": "tokenContract",
 		"outputs": [
 			{
-				"internalType": "contract ITokenCreate",
+				"internalType": "contract ITokenContract",
 				"name": "",
 				"type": "address"
 			}
@@ -682,7 +682,7 @@ const AssignContractABI = [
 		"name": "tokenContract",
 		"outputs": [
 			{
-				"internalType": "contract ITokenCreate",
+				"internalType": "contract ITokenContract",
 				"name": "",
 				"type": "address"
 			}
@@ -752,7 +752,7 @@ const AvailabilityContractABI = [
 		"name": "tokenContract",
 		"outputs": [
 			{
-				"internalType": "contract ITokenCreate",
+				"internalType": "contract ITokenContract",
 				"name": "",
 				"type": "address"
 			}
@@ -761,7 +761,7 @@ const AvailabilityContractABI = [
 		"type": "function"
 	}
 ];
-const billingContractABI = [
+const BillingContractABI = [
 	{
 		"inputs": [
 			{
@@ -893,7 +893,7 @@ const billingContractABI = [
 		"name": "tokenCreate",
 		"outputs": [
 			{
-				"internalType": "contract ITokenCreate",
+				"internalType": "contract ITokenContract",
 				"name": "",
 				"type": "address"
 			}
@@ -901,7 +901,7 @@ const billingContractABI = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-];
+]
 const tokenCreateContractAddress = '0xe4F5E0B5Cc1cCFb57B7D5e1732360e27321f007D';
 const consentContractAddress = '0x8F909476AD5D989851c5Acd01abB50e4574856F2';
 const evaluateContractAddress = '0x897281E37017b1cE1661CF9a2C12F29E1C4537dF';
@@ -930,7 +930,7 @@ let BillingContract;
 			EvaluateContract = new web3.eth.Contract(EvaluateContractABI, evaluateContractAddress);
 			AssignContract = new web3.eth.Contract(AssignContractABI, assignContractAddress);
 			AvailabilityContract = new web3.eth.Contract(AvailabilityContractABI, availabilityContractAddress);
-			BillingContract = new web3.eth.Contract(billingContractABI, billingContractAddress);
+			BillingContract = new web3.eth.Contract(BillingContractABI, billingContractAddress);
 
 			populateAccountDropdown(accounts);
 			loadRequestsToDropdown();
