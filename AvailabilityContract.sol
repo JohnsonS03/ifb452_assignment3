@@ -43,6 +43,8 @@ contract AvailableContract {
         _;
     }
 
+    event requestAppoved(uint256 requestId);
+
     /**
 * @notice Approves a request and assigns an available organ.
 *
@@ -61,5 +63,6 @@ indicating approval of a request. It also increments or decrements counters as n
         );
         r.isApproved = true;
         tokenContract.approveRequest(requestId, r);
+        emit requestAppoved(requestId);
     }
 }

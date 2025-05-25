@@ -1,58 +1,10 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "patientName",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "isApproved",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct ITokenCreate.RequestId",
-						"name": "",
-						"type": "tuple"
-					}
-				],
-				"name": "approveRequest",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"name": "createRequest",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
 			{
 				"inputs": [
 					{
@@ -144,66 +96,6 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"components": [
-							{
-								"internalType": "string",
-								"name": "donerName",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "dateDonated",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "condition",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "donatedTo",
-								"type": "string"
-							},
-							{
-								"internalType": "bool",
-								"name": "isConsented",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isEvaluated",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isStored",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isAssigned",
-								"type": "bool"
-							}
-						],
-						"internalType": "struct ITokenCreate.OrganId",
-						"name": "",
-						"type": "tuple"
-					}
-				],
-				"name": "updateOrgan",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -219,9 +111,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"AvailabilityContract.sol": "ITokenCreate"
+			"BillingContract.sol.sol": "ITokenCreate"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -233,12 +125,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"AvailabilityContract.sol": {
-			"keccak256": "0x44fed2aa2c0f71ff26edf5db4dd3bc398456c969a405c72348fa1cf649b9ca24",
+		"BillingContract.sol.sol": {
+			"keccak256": "0x0b539b69b55a854baecfba8559eb33e2c2e76f673461c70d0de0802ee171fc39",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1fab0300c7a85e05258156dbb5aae325c95569b9ce6f359952b2eef7cc9d99e4",
-				"dweb:/ipfs/QmUCHHxQbJXiby6vZ42UqZD489KDmo3bPDZ6NnoPWyEgeD"
+				"bzz-raw://15d9b829b11652c4e9e06895c64cbed31e9509adfa6d1d1578d6d82f05dbfa3c",
+				"dweb:/ipfs/Qmb11Z5rWdSQEkWYbJ4ariF5koT38Pqyonzhr7jLyDk92E"
 			]
 		}
 	},

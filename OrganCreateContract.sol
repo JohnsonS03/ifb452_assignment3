@@ -160,10 +160,11 @@ contract TokenCreateContract {
                 organs[i].donatedTo = _request.patientName;
                 organs[i].isAssigned = true;
                 availableOrgan--;
+                requestCount--;
+
                 emit requestApproved(_id, requests[_id].patientName);
                 return;
             }
         }
-        requestCount--;
     }
 }

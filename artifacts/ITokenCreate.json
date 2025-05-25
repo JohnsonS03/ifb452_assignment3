@@ -49,62 +49,11 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"approveRequest(uint256,(string,bool))": "5be2218b",
-			"createRequest(string,bool)": "2f045b02",
 			"getOrgan(uint256)": "10742b51",
-			"getRequest(uint256)": "c58343ef",
-			"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": "0d47dd26"
+			"getRequest(uint256)": "c58343ef"
 		}
 	},
 	"abi": [
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "patientName",
-							"type": "string"
-						},
-						{
-							"internalType": "bool",
-							"name": "isApproved",
-							"type": "bool"
-						}
-					],
-					"internalType": "struct ITokenCreate.RequestId",
-					"name": "",
-					"type": "tuple"
-				}
-			],
-			"name": "approveRequest",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "string",
-					"name": "",
-					"type": "string"
-				},
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"name": "createRequest",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
 		{
 			"inputs": [
 				{
@@ -195,66 +144,6 @@
 				}
 			],
 			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "donerName",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "dateDonated",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "condition",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "donatedTo",
-							"type": "string"
-						},
-						{
-							"internalType": "bool",
-							"name": "isConsented",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isEvaluated",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isStored",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isAssigned",
-							"type": "bool"
-						}
-					],
-					"internalType": "struct ITokenCreate.OrganId",
-					"name": "",
-					"type": "tuple"
-				}
-			],
-			"name": "updateOrgan",
-			"outputs": [],
-			"stateMutability": "nonpayable",
 			"type": "function"
 		}
 	]

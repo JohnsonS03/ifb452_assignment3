@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.26+commit.8a97fa7a"
 	},
 	"language": "Solidity",
 	"output": {
@@ -20,6 +20,25 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "organId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "condition",
+						"type": "string"
+					}
+				],
+				"name": "evaluationDone",
+				"type": "event"
 			},
 			{
 				"inputs": [
@@ -93,7 +112,7 @@
 		"compilationTarget": {
 			"EvaluateContract.sol": "EvaluateContract"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -106,11 +125,11 @@
 	},
 	"sources": {
 		"EvaluateContract.sol": {
-			"keccak256": "0x8578bedbc98a5aec188a96d949912ff8c4455ed5a9f1145f2d3a382de33f37fd",
+			"keccak256": "0xbf25bc3af01d55316a5b7bdedc4d818d1ec9d4c96cfcc8e00ff2f0a3b50d9b23",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5479d7d65347b421db2f6fc59b3dd778201c40762145f2acca9d8cf00c444648",
-				"dweb:/ipfs/QmdEcpcE8otN7owLVDBawFForbTDVUpdGXBHQEBVqTMJeo"
+				"bzz-raw://cb8d115f86bcf21a585f23a6b6d999e097ee183f8f9376d7121eed77b622250c",
+				"dweb:/ipfs/Qmf6sjMy6TnxAqM2NgGHUv8CYL7h8u9aSYRCzmySNvPZZE"
 			]
 		}
 	},

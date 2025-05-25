@@ -42,6 +42,8 @@ contract AssignContract {
         require(msg.sender == doctor, "Only doctor");
         _;
     }
+    
+    event requestCreated(string patient);
 
     /**
 * @notice Creates a new request.
@@ -53,5 +55,6 @@ the createRequest method of ITokenCreate contract, passing in patient.
 */
     function createRequest(string memory patient) public onlyDoctor {
         tokenContract.createRequest(patient, false);
+        emit requestCreated(patient);
     }
 }

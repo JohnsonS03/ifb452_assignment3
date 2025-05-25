@@ -1,0 +1,185 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_receptionist",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenCreate",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "patientName",
+						"type": "string"
+					}
+				],
+				"name": "InvoiceGenerated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "generateInvoice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_requestId",
+						"type": "uint256"
+					}
+				],
+				"name": "getInvoice",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "requestId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "patientName",
+								"type": "string"
+							},
+							{
+								"internalType": "bool",
+								"name": "generated",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct BillingContract.Invoice",
+						"name": "invoice",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "invoices",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "patientName",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "generated",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receptionist",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenCreate",
+				"outputs": [
+					{
+						"internalType": "contract ITokenCreate",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"BillingContract.sol.sol": "BillingContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"BillingContract.sol.sol": {
+			"keccak256": "0x0b539b69b55a854baecfba8559eb33e2c2e76f673461c70d0de0802ee171fc39",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://15d9b829b11652c4e9e06895c64cbed31e9509adfa6d1d1578d6d82f05dbfa3c",
+				"dweb:/ipfs/Qmb11Z5rWdSQEkWYbJ4ariF5koT38Pqyonzhr7jLyDk92E"
+			]
+		}
+	},
+	"version": 1
+}

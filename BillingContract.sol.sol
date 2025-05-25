@@ -1,22 +1,47 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+interface ITokenCreate {
+    struct OrganId {
+        string donerName;
+        uint256 dateDonated;
+        string condition;
+        string donatedTo;
+        bool isConsented;
+        bool isEvaluated;
+        bool isStored;
+        bool isAssigned;
+    }
+
+    struct RequestId {
+        string patientName;
+        bool isApproved;
+    }
+
+    function getOrgan(uint256) external view returns (OrganId memory);
+
+
+    function getRequest(uint256) external view returns (RequestId memory);
+}
+
 contract BillingContract {
     address public receptionist;
+    ITokenCreate public tokenCreate;
 
-    constructor() {
-        receptionist = msg.sender;
+    constructor(address _receptionist, address _tokenCreate) {
+        receptionist = _receptionist;
+        tokenCreate = ITokenCreate(_tokenCreate);
     }
 
     struct Invoice {
-        uint organId;
+        uint256 requestId;
         string patientName;
         bool generated;
     }
 
     mapping(uint => Invoice) public invoices;
 
-    event InvoiceGenerated(uint organId, string patientName);
+    event InvoiceGenerated(uint256 requestId, string patientName);
 
     modifier onlyReceptionist() {
         require(msg.sender == receptionist, "Only receptionist can perform this action.");
@@ -24,21 +49,19 @@ contract BillingContract {
     }
 
     // Minimal single function for receptionist to create invoice
-    function generateInvoice(uint _organId, string memory _patientName) public onlyReceptionist {
-        require(!invoices[_organId].generated, "Invoice already exists for this organId.");
+    function generateInvoice(uint256 _requestId) public onlyReceptionist {
+        require(!invoices[_requestId].generated, "Invoice already exists for this patient.");
+        ITokenCreate.RequestId memory r = tokenCreate.getRequest(_requestId);
+        require(r.isApproved, "Patient has not been assigned with an organ.");
 
-        invoices[_organId] = Invoice({
-            organId: _organId,
-            patientName: _patientName,
-            generated: true
-        });
+        invoices[_requestId] = Invoice(_requestId, r.patientName, true);
 
-        emit InvoiceGenerated(_organId, _patientName);
+        emit InvoiceGenerated(_requestId, r.patientName);
     }
 
     // Optional getter retained for frontend communication
-    function getInvoice(uint _organId) public view returns (string memory patientName, bool generated) {
-        Invoice memory inv = invoices[_organId];
-        return (inv.patientName, inv.generated);
+    function getInvoice(uint256 _requestId) public view returns (Invoice memory invoice) {
+        Invoice memory inv = invoices[_requestId];
+        return inv;
     }
 }

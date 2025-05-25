@@ -19,17 +19,20 @@ contract ConsentContract {
         _;
     }
 
+    event consentGiven(string name, uint256 date);
+
     /**
 
 @notice Allows a donor to create an organ.
 
 @dev This function creates a new OrganId struct with provided details and calls the createOrgan method of ITokenCreate contract, passing in _name and _date.
 
-@param _name The name of the donated organ being created.
+@param name The name of the donated organ being created.
 
-@param _date The date when this donation was made.
+@param date The date when this donation was made.
 */
-    function consent(string memory _name, uint256 _date) public onlyDonor {
-        tokenCreate.createOrgan(_name, _date);
+    function consent(string memory name, uint256 date) public onlyDonor {
+        tokenCreate.createOrgan(name, date);
+        emit consentGiven(name, date);
     }
 }

@@ -32,6 +32,8 @@ contract EvaluateContract {
         _;
     }
 
+    event evaluationDone(uint256 organId, string condition);
+
     /**
 
 @notice Evaluates a donated organ and updates its status.
@@ -58,5 +60,7 @@ and emits an event indicating that this request was successfully evaluated.
         o.isEvaluated = true;
         o.isStored = true;
         tokenContract.updateOrgan(organId, o);
+
+        emit evaluationDone(organId, condition);
     }
 }
