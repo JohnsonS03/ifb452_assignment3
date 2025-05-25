@@ -1,6 +1,6 @@
 **GITHUB: [LINK TO REPO](https://github.com/JohnsonS03/ifb452_assignment3.git)**
 
-### OrganChain<br/>
+# OrganChain<br/>
 This application is designed to ensure legal handling of human organs for transplantation. Each organ will have a Token ID that can be viewed by the application regarding its authenticity and information. This Token will be transferred among stakeholders for them to view its information and legality.<br/>
 <br/>
 
@@ -35,4 +35,16 @@ Initially, Doner will have to sign a consent form for organ donation. <br/>
 • **Available** – Permission only for Healthcare Department <br/>
 • **Assign** – Permission only for Practitioner 
 • **Billing** - will be completed finally as external transaction.<br/>
+<br/>
+
+# Functions Explaination:
+## Current Address:
+![image](https://github.com/user-attachments/assets/4a0933c7-d3ec-4331-95af-3440c8b2bad2)<br/>
+**Current Address** allows the application to switch between stakeholder and select the one we desire as to operate on each smart contract, while the function executed will prompt user to verify transaction and smart contract will ensure the selected stakeholder is the assigned function stakeholder.<br/>
+<br/>
+
+## Donor:
+![image](https://github.com/user-attachments/assets/fd9e18fd-579e-4b58-ad3f-0924d25aac7a)<br/>
+**Donor** allows donor(s) to submit organ donation consent into the blockchain.
+
 
