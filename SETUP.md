@@ -30,3 +30,9 @@ After server built finish, test it by running:<br/>
 
 Finally, you should be open your own hosted server by browsing:<br/>
 `http://localhost:3000`
+
+---
+
+### Stakeholders(addresses) setup
+1. Create 6 different account with sufficient SepETH in MetaMask.<br/>
+2. Copy them and replace each address in line 905-910 of file [myScript](myScript.js) located in [frontend](frontend).<br/>
