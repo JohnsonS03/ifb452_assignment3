@@ -141,7 +141,7 @@
 				</div>
 			</div>
 			<div class="form-container">
-				<form id="organForm">
+				<form id="organPreview">
 					<div class="form-group">
 						<label for="organ">Organ ID:</label>
 						<select id="organID">
@@ -200,14 +200,21 @@
 			</div>
 		</div>
 		<div class="form-container">
-			<header for="reception">Reception:</header>
+			<header for="invoicePreview">Reception:</header>
+			<select id="requestForInvoiceID">
+				<option value="0">--Requests--</option>
+			</select>
 			<div class="button-group">
-				<button onclick="showFinish()+handleAction('generateInvoice')">Generate Invoice</button>
+				<button onclick="generateInvoice()">Generate Invoice</button>
+				<p>
+					<label>Invoice:</label>
+					<span id="invoiceID">N/A</span>
+				</p>
 			</div>
 		</div>
 
 		<div class="form-container">
-			<header for="specialist">Approve Status:</header>
+			<header for="requestPreview">Approve Status:</header>
 			<label for="patient Name">Patient:</label>
 
 			<select id="requestID">

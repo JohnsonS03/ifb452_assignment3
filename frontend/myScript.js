@@ -477,15 +477,34 @@ const ConsentContractABI = [
 		"type": "constructor"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "date",
+				"type": "uint256"
+			}
+		],
+		"name": "consentGiven",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_name",
+				"name": "name",
 				"type": "string"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_date",
+				"name": "date",
 				"type": "uint256"
 			}
 		],
@@ -537,6 +556,25 @@ const EvaluateContractABI = [
 		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "organId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "condition",
+				"type": "string"
+			}
+		],
+		"name": "evaluationDone",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -601,6 +639,19 @@ const AssignContractABI = [
 		"type": "constructor"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "patient",
+				"type": "string"
+			}
+		],
+		"name": "requestCreated",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "string",
@@ -658,6 +709,19 @@ const AvailabilityContractABI = [
 		"type": "constructor"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "requestId",
+				"type": "uint256"
+			}
+		],
+		"name": "requestAppoved",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -697,11 +761,153 @@ const AvailabilityContractABI = [
 		"type": "function"
 	}
 ];
-const tokenCreateContractAddress = '0xF973B766ef18340D8AB76FFcaC0D53C75C1A143f';
-const consentContractAddress = '0x9627744033843fEd1ffc4cd8cE62C9f88c333d83';
-const evaluateContractAddress = '0xa22E8564c0c297eee6897DCB2045Ae0855A2937f';
-const assignContractAddress = '0xAb53C3dACCD38C105B704bE1bcCdF3B6cB700b03';
-const availabilityContractAddress = '0x7a4b6993b04dB4a85E5016c1FB65727822f1ecbe';
+const billingContractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_receptionist",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_tokenCreate",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "requestId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "patientName",
+				"type": "string"
+			}
+		],
+		"name": "InvoiceGenerated",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_requestId",
+				"type": "uint256"
+			}
+		],
+		"name": "generateInvoice",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_requestId",
+				"type": "uint256"
+			}
+		],
+		"name": "getInvoice",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "requestId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "patientName",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "generated",
+						"type": "bool"
+					}
+				],
+				"internalType": "struct BillingContract.Invoice",
+				"name": "invoice",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "invoices",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "requestId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "patientName",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "generated",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "receptionist",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "tokenCreate",
+		"outputs": [
+			{
+				"internalType": "contract ITokenCreate",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+const tokenCreateContractAddress = '0xe4F5E0B5Cc1cCFb57B7D5e1732360e27321f007D';
+const consentContractAddress = '0x8F909476AD5D989851c5Acd01abB50e4574856F2';
+const evaluateContractAddress = '0x897281E37017b1cE1661CF9a2C12F29E1C4537dF';
+const assignContractAddress = '0x914AC745B35436224A0E359A779e0f0789f25440';
+const availabilityContractAddress = '0xf99047E05939d3c03757d9a6aB7E681117187837';
+const billingContractAddress = '0xAe5D06B0cCacCD9A1A8DFaA81803f47b82Ae4a99';
 
 let web3;
 let accounts = [];
@@ -710,6 +916,7 @@ let ConsentContract;
 let EvaluateContract;
 let AssignContract;
 let AvailabilityContract;
+let BillingContract;
 
 
 (async () => {
@@ -723,6 +930,7 @@ let AvailabilityContract;
 			EvaluateContract = new web3.eth.Contract(EvaluateContractABI, evaluateContractAddress);
 			AssignContract = new web3.eth.Contract(AssignContractABI, assignContractAddress);
 			AvailabilityContract = new web3.eth.Contract(AvailabilityContractABI, availabilityContractAddress);
+			BillingContract = new web3.eth.Contract(billingContractABI, billingContractAddress);
 
 			populateAccountDropdown(accounts);
 			loadRequestsToDropdown();
@@ -763,9 +971,14 @@ document.getElementById('organID').addEventListener('change', function () {
 document.getElementById('requestID').addEventListener('change', function () {
 	updateRequestPreview();
 })
+document.getElementById('requestForInvoiceID').addEventListener('change', function () {
+	updateInvoicePreview();
+})
+
 
 /**
- *
+ *Update the organ data display in the 'organPreview'
+ *in EventListener to automate the display update
  *
  */
 async function updateOrganPreview() {
@@ -789,6 +1002,11 @@ async function updateOrganPreview() {
 	}
 }
 
+/**
+ *Update the request data display in the 'requestPreview'
+ *in EventListener to automate the display update
+ *
+ */
 async function updateRequestPreview() {
 	const targetRequest = document.getElementById('requestID').value;
 	console.log(targetRequest);
@@ -808,19 +1026,50 @@ async function updateRequestPreview() {
 		console.log(`${name}${statusText}`);
 		document.getElementById('statusID').innerText = statusText;
 	} catch (err) {
-		console.error("Failed to fetch organ data:", err);
+		console.error("Failed to fetch request data:", err);
 	}
 }
 
 /**
+ *Update the invoice data display in the 'invoicePreview'
+ *in EventListener to automate the display update
  *
+ */
+async function updateInvoicePreview() {
+	const targetInvoice = document.getElementById('requestForInvoiceID').value;
+
+	try {
+		const invoice = await getInvoice(targetInvoice);
+		statusText = "";
+		const requestId = invoice.requestId;
+		const patientName = invoice.patientName;
+		const isGenerated = invoice.generated;
+
+		if (isGenerated) {
+			statusText = "\nhas been generated!";
+		}
+		else {
+			statusText = "\nhas not been generated yet."
+		}
+
+		document.getElementById('invoiceID').innerText = "Invoice #" + `${requestId}.${patientName} ` + statusText;
+	} catch (err) {
+		console.error("Failed to print invoice!", err);
+	}
+}
+
+/**
+ *Update the organ available count display in the 'numberDisplay' div
+ *(decremental every time a request is approved)
+ *in EventListener, automate the display update
+ *in approveRequest function, update the display after a selected request is approved
  *
  * @param {*} event
  */
 async function updateAvailableDisplay(event) {
 	const availableOrganCount = await availableOrganCountGetter();
 	const display = document.getElementById("numberDisplay");
-	display.innerHTML = availableOrganCount;
+	display.innerText = "Organ left to assigned: \n" + availableOrganCount;
 }
 
 function populateAccountDropdown(accountList) {
@@ -835,7 +1084,8 @@ function populateAccountDropdown(accountList) {
 }
 
 /**
- *
+ *Update and load the existing organ list into the passed parameter, organList
+ *in loadOrgansToDropdown function, will pass in a array parameter, organList, organList will be modified and pushed the existing organ list
  *
  * @param {*} organList
  */
@@ -860,15 +1110,18 @@ function populateOrganDropdown(organList) {
 }
 
 /**
- *
+ *Update and load the existing request list into the passed parameter, requestList
+ *in loadRequestsToDropdown function, will pass in a array parameter, requestList, requestList will be modified and pushed the existing request list
  *
  * @param {*} requestList
  */
 function populateRequestDropdown(requestList) {
 	const select = document.getElementById("requestSelect");
 	const select1 = document.getElementById("requestID");
+	const invoiceRequest = document.getElementById("requestForInvoiceID");
 	select.innerHTML = `<option value="0">--Requests--</option>`;
 	select1.innerHTML = `<option value="0">--Requests--</option>`;
+	invoiceRequest.innerHTML = `<option value="0">--Requests--</option>`;
 	console.log(requestList);
 	requestList.forEach(request => {
 		const option = document.createElement("option");
@@ -882,11 +1135,16 @@ function populateRequestDropdown(requestList) {
 		option.text = `${request.id}. ${request.patientName}`;
 		select1.appendChild(option);
 	})
+	requestList.forEach(request => {
+		const option = document.createElement("option");
+		option.value = request.id;
+		option.text = `${request.id}. ${request.patientName}`;
+		invoiceRequest.appendChild(option);
+	})
 }
 
 /**
- *
- *
+ *Retrieve the selected value (address account) from the dropdown list('accountSelect')
  * @return {*} 
  */
 function getSelectedAccount() {
@@ -894,7 +1152,7 @@ function getSelectedAccount() {
 }
 
 /**
- *
+ *Parsed time (in timestamp format) to readable format(eg. 26/5/2025)
  *
  * @param {*} time
  * @return {*} 
@@ -905,7 +1163,7 @@ function timestampToDate(time) {
 }
 
 /**
- *
+ *Remove a element with 'targetId' from the dropdown list with 'selectId'
  *
  * @param {*} selectId
  * @param {*} targetId
@@ -943,6 +1201,12 @@ async function getRequest(targetId) {
 	const contract = TokenCreateContract;
 	const theRequest = await contract.methods.getRequest(targetId).call();
 	return theRequest;
+}
+
+async function getInvoice(targetId) {
+	const contract = BillingContract;
+	const theInvoice = await contract.methods.getInvoice(targetId).call();
+	return theInvoice;
 }
 
 /**
@@ -1007,8 +1271,6 @@ async function requestGetter() {
 		const request = await TokenCreateContract.methods.getRequest(i).call();
 
 		requestList.push({ id: i, patientName: request.patientName, approved: request.isApproved });
-		console.log();
-		console.log();
 	}
 	return requestList;
 }
@@ -1074,7 +1336,31 @@ async function createRequest() {
 }
 
 /**
- *Approve selected request
+ *Generate an invoice for patient with id 'targetRequest'
+ *
+ * @return {*} 
+ */
+async function generateInvoice() {
+	const contract = BillingContract;
+	const from = getSelectedAccount();
+	const targetRequest = document.getElementById('requestForInvoiceID').value;
+	console.log(targetRequest);
+	if (targetRequest == 0) {
+		alert("Please select a patient.");
+		return;
+	}
+
+	try {
+		await contract.methods.generateInvoice(targetRequest).send({ from });
+		console.log("Invoice generated and pushed!");
+	}
+	catch (err) {
+		console.error("Error occurred!", err);
+	}
+}
+
+/**
+ *Approve selected request with id 'requestId'
  *
  * @return {*} 
  */
@@ -1090,23 +1376,22 @@ async function approveRequest() {
 	}
 	try {
 		await contract.methods.approveRequest(requestId).send({ from });
-		removeOptionById("requestSelect", requestId);
-		updateAvailableDisplay();
 
 		console.log(`Request ${requestSelect} is approved.`);
 	} catch (err) {
 		console.error("Error occurred!", err);
 	}
+	updateAvailableDisplay();
+
 }
 
 /**
- *Assign an selected evaluation to the organ
+ *Assign an selected evaluation to the organ with id 'organId'
  *
  * @return {*} 
  */
 async function evaluateOrgan() {
 	const conditionSelect = document.getElementById("conditionSelect");
-	const conditionValue = conditionSelect.value;
 	const conditionText = conditionSelect.options[conditionSelect.selectedIndex].text;
 	console.log(conditionText);
 	const organSelect = document.getElementById("organSelect");
