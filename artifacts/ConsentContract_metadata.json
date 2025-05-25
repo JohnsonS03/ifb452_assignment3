@@ -76,7 +76,7 @@
 				"name": "tokenCreate",
 				"outputs": [
 					{
-						"internalType": "contract ITokenCreate",
+						"internalType": "contract ITokenContract",
 						"name": "",
 						"type": "address"
 					}
@@ -125,11 +125,11 @@
 	},
 	"sources": {
 		"ConsentContract.sol": {
-			"keccak256": "0xd953a5eea4ebc62d5993e24a88777321f725259b1a3e9ec0095a95191c51b98c",
+			"keccak256": "0x17fcdf4981605702bb0283e3c3265c09de965cfa714d582283c60d3842e71088",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://48505bd9e7080c1c4af9c0865eb77101f323e50bc4825af10b9f52532238a456",
-				"dweb:/ipfs/QmdZfgY5MbsigtzGi2n86KAh9THqJVuHqHbfTK4yT2BV96"
+				"bzz-raw://38a5ac785ddfbaaa58e7f16babd72ae3a3c6c6a7e1aa231104e804dc846b105c",
+				"dweb:/ipfs/QmS1WWJEyRxoq9bz4qu3q3VAsqSwJVvbF6TnBV8WkRqHKR"
 			]
 		}
 	},

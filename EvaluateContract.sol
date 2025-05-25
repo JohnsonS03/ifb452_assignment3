@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-interface ITokenCreate {
+interface ITokenContract {
     struct OrganId {
         string donerName;
         uint256 dateDonated;
@@ -20,11 +20,11 @@ interface ITokenCreate {
 
 contract EvaluateContract {
     address public specialist;
-    ITokenCreate public tokenContract;
+    ITokenContract public tokenContract;
 
     constructor(address _specialist, address _tokenAddr) {
         specialist = _specialist;
-        tokenContract = ITokenCreate(_tokenAddr);
+        tokenContract = ITokenContract(_tokenAddr);
     }
 
     modifier onlySpecialist() {
@@ -50,7 +50,7 @@ and emits an event indicating that this request was successfully evaluated.
         public
         onlySpecialist
     {
-        ITokenCreate.OrganId memory o = tokenContract.getOrgan(organId);
+        ITokenContract.OrganId memory o = tokenContract.getOrgan(organId);
         require(o.isConsented, "Not consented");
         require(
             !o.isEvaluated,

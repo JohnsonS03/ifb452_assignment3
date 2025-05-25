@@ -136,7 +136,7 @@
 				"name": "tokenCreate",
 				"outputs": [
 					{
-						"internalType": "contract ITokenCreate",
+						"internalType": "contract ITokenContract",
 						"name": "",
 						"type": "address"
 					}
@@ -173,11 +173,11 @@
 	},
 	"sources": {
 		"BillingContract.sol.sol": {
-			"keccak256": "0x0b539b69b55a854baecfba8559eb33e2c2e76f673461c70d0de0802ee171fc39",
+			"keccak256": "0xead477a5e40d41cc5dd1d08e73f52b6082b9a72069245b0cc674b36e8b33930e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://15d9b829b11652c4e9e06895c64cbed31e9509adfa6d1d1578d6d82f05dbfa3c",
-				"dweb:/ipfs/Qmb11Z5rWdSQEkWYbJ4ariF5koT38Pqyonzhr7jLyDk92E"
+				"bzz-raw://aa2e7b18e3b584041e0164e49ce59ad1370ae8d9fc69e26d1f7d40eca9f0b719",
+				"dweb:/ipfs/QmZA9PGqybYwsGrkueGV2DG6EGrm6nxTFGamVP4SFjfAFx"
 			]
 		}
 	},
