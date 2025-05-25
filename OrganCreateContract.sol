@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 contract TokenCreateContract {
     struct OrganId {
-        string donerName;
+        string donorName;
         uint256 dateDonated;
         string condition;
         string donatedTo;
@@ -36,7 +36,7 @@ contract TokenCreateContract {
     }
 
     event organIdCreated(
-        string doner,
+        string donor,
         uint256 date,
         string condition,
         string donatedTo,
@@ -53,14 +53,14 @@ contract TokenCreateContract {
      *
      * @dev This function creates an OrganId struct and stores it in the mapping of organs, incrementing both organCount and availableOrgan. It also emits an event to notify that an organ has been created.
      *
-     * @param _donerName The name of the donor who donated this organ.
+     * @param _donorName The name of the donor who donated this organ.
      * @param _date The date when this organ was donated.
      */
-    function createOrgan(string memory _donerName, uint256 _date) external {
+    function createOrgan(string memory _donorName, uint256 _date) external {
         organCount++;
         availableOrgan++;
         organs[organCount] = OrganId(
-            _donerName,
+            _donorName,
             _date,
             "To be evaluated",
             "To be assigned",
@@ -70,7 +70,7 @@ contract TokenCreateContract {
             false
         );
         emit organIdCreated(
-            _donerName,
+            _donorName,
             _date,
             "To be evaluated",
             "To be assigned",

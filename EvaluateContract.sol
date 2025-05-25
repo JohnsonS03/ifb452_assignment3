@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 interface ITokenContract {
     struct OrganId {
-        string donerName;
+        string donorName;
         uint256 dateDonated;
         string condition;
         string donatedTo;
