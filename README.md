@@ -45,7 +45,7 @@ Initially, Doner will have to sign a consent form for organ donation. <br/>
 
 ## Donor:
 ![image](https://github.com/user-attachments/assets/fd9e18fd-579e-4b58-ad3f-0924d25aac7a)<br/>
-**Donor** allows donor(s) to submit organ donation consent into the blockchain. Function 'ConsentContract.consent(string name, uint256 date)' will be called when button is clicked.<br/>
+**Donor** allows donor(s) to submit organ donation consent into the contracts. Function 'ConsentContract.consent(string name, uint256 date)' will be called when button is clicked.<br/>
 #### Functions used: 
 - ConsentContract.consent(string name, uint256 date)
   - Visibility: public
@@ -53,7 +53,7 @@ Initially, Doner will have to sign a consent form for organ donation. <br/>
   - consent receive parameters name and date, then call and parse this two variables into createOrgan.
 - OrganCreateContract.createOrgan(string _donorName, uint256 _date)
   - Visibility: external
-  - createOrgan receive parameters _donorName and _date, a new OrganId(token Id) will be constructed and stored into organs(mapping) with key(organCount).<br/>
+  - createOrgan receive parameters _donorName and _date. A new OrganId(token Id) will be constructed and stored into organs(mapping) with key(organCount).<br/>
 <br/>
 
 ## Specialist:
@@ -74,18 +74,62 @@ Initially, Doner will have to sign a consent form for organ donation. <br/>
 
 ## Healthcare Department:
 ![image](https://github.com/user-attachments/assets/92f6ec4f-8ca6-49ae-bf97-60cd9f25c1af)<br/>
-**Healthcare Department** allows healthcare department to approve a selected organ assignment request from the dropdown list sent by the practitioner. A display is available and will be updated to show the current available number organ that are still unassigned a patient(donatedTo). Function 'AvailabilityContract.approveRequest(uint256 requestId)' will be called when is clicked.<br/> 
+**Healthcare Department** allows healthcare department to approve a selected organ assignment request from the dropdown list sent by the practitioner previously. A display is available and will be updated to show the current available number organ that are still unassigned a patient(donatedTo). Function 'AvailabilityContract.approveRequest(uint256 requestId)' will be called when is clicked.<br/> 
 #### Functions used:
 - AvailabilityContract.approveRequest(uint256 requestId)
   - Visibility: public
   - Modifier: onlyHealthcare
-  - approveRequest receive a parameter requestId.
+  - approveRequest receive a parameter requestId. getRequest is used to check if the targeted requestId has been approved, if check is passed, then a requestId object with new isApproved will be parsed into approveRequest.
 - OrganCreateContract.getRequest(uint256 _id)
   - Visibility: external (view)
-  - getRequest receive a parameter _id. Return a RequestId object with the key(_id).
+  - getRequest receive a parameter _id. **Return** a RequestId object with the key(_id).
 - OrganCreateContract.approveRequest(uint256 _id, RequestId _request)
   - Visibility: external
   - approveRequest receive parameters _id and _request. An RequestId object with key(_id) will be replace by the RequestId object(_request). Features donatedTo and isAssigned of the next available OrganId will be modified. donatedTo = _request.patientName; isAssigned = true;.<br/>
 <br/>
 
+## Practitioner:
+![image](https://github.com/user-attachments/assets/fa647fa4-ebc3-4490-acdf-d2deacbebd5d)<br/>
+**Practitioner** allows practitioner to submit organ assignment request into the contract that will later handled by healthcare department. Function 'AssignContract.createRequest(string patient)' will be called when is clicked.<br/>
+#### Functions used:
+- AssignContract.createRequest(string patient)
+  - Visibility: public
+  - Modifier: onlyHealthcare
+  - approveRequest receive parameter requestId. createRequest will pass the parameter patient into the createRequest.
+- OrganCreateContract.createRequest(string patientName, bool approved)
+  - Visibility: external
+  - createRequest receive parameters patientName and approved. a new RequestId(tokenId) will be constructed and stored into requests(mapping) with key(totalCount). <br/>
+<br/>
 
+## Reception:
+![image](https://github.com/user-attachments/assets/5ad1418c-982f-40a7-ab6b-f4b7ca77f799)<br/>
+**Reception** allows receptionist to generate an invoice with patient name. Function 'BillingContract.generateInvoice(uint256 _requestId)' will be called when the button is clicked.
+<br/>
+#### Functions used:
+- BillingContract.generateInvoice(uint256 _requestId)
+  - Visibility: public
+  - Modifier: onlyReceptionist
+  - generateInvoice receive parameter _requestId. getRequest is used to check if the targeted _requestId has been approved, if check is passed, a new Invoice object will be structed and stored into invoices(mapping) with key(_requestId).
+- OrganCreateContract.getRequest(uint256 _id)
+  - Visibility: external (view)
+  - getRequest receive a parameter _id. **Return** a RequestId object with the key(_id).<br/>
+<br/>
+
+# Display Implementation:
+### OrganId Status Display
+![image](https://github.com/user-attachments/assets/6d7250c3-3730-42f0-9a4a-239a65d30c5b)<br/>
+This allows stakeholder to preview the selected organId status.
+#### Functions used: 
+- OrganCreateContract.getOrgan(uint256 _id)
+  - Visibility: external (view)
+  - getOrgan receive a parameter _id. **Return** a OrganId object with the key(_id).<br/>
+<br/>
+
+### RequestId Approval Status Display
+![image](https://github.com/user-attachments/assets/ae81620f-59b2-4f5c-8594-49fbe1b0b945)<br/>
+This allows stakeholder to preview the selected requestId status.
+#### Functions used:
+- OrganCreateContract.getRequest(uint256 _id)
+  - Visibility: external (view)
+  - getRequest receive a parameter _id. **Return** a RequestId object with the key(_id).<br/>
+<br/>
