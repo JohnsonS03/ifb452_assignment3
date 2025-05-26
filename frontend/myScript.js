@@ -1265,7 +1265,7 @@ async function organGetter() {
  */
 async function requestGetter() {
 	const requestList = [];
-	const requestCount = await TokenCreateContract.methods.requestCount().call();
+	const requestCount = await TokenCreateContract.methods.totalRequest().call();
 
 	for (let i = 1; i <= requestCount; i++) {
 		const request = await TokenCreateContract.methods.getRequest(i).call();
