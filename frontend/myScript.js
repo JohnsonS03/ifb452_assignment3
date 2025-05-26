@@ -902,12 +902,12 @@ const BillingContractABI = [
 		"type": "function"
 	}
 ]
-const tokenCreateContractAddress = '0xe4F5E0B5Cc1cCFb57B7D5e1732360e27321f007D';
-const consentContractAddress = '0x8F909476AD5D989851c5Acd01abB50e4574856F2';
-const evaluateContractAddress = '0x897281E37017b1cE1661CF9a2C12F29E1C4537dF';
-const assignContractAddress = '0x914AC745B35436224A0E359A779e0f0789f25440';
-const availabilityContractAddress = '0xf99047E05939d3c03757d9a6aB7E681117187837';
-const billingContractAddress = '0xAe5D06B0cCacCD9A1A8DFaA81803f47b82Ae4a99';
+const tokenCreateContractAddress = '0xE3086cFfF71948dE46c80DDc53D44CF195EE4526';
+const consentContractAddress = '0x8e3F7057b95E8D7a9130A91E062b3A2780de7abD';
+const evaluateContractAddress = '0x4D78Fa9fe044aB039c6a388ea09dF9EdC9CA4a08';
+const assignContractAddress = '0x8514154070bb5EF59C3049785BA55529Ad918EFe';
+const availabilityContractAddress = '0x21b4460f99ca13Fc186D3a0FEF04f41357b8f662';
+const billingContractAddress = '0xA16fFA03B86911c4F4c4f1a18102bD065420118f';
 
 let web3;
 let accounts = [];
@@ -987,7 +987,7 @@ async function updateOrganPreview() {
 
 	try {
 		const organ = await getOrgan(targetOrgan);
-		const name = organ.donerName;
+		const name = organ.donorName;
 		const date = timestampToDate(organ.dateDonated);
 		const condition = organ.condition;
 		const patient = organ.donatedTo;
@@ -1265,7 +1265,7 @@ async function organGetter() {
  */
 async function requestGetter() {
 	const requestList = [];
-	const requestCount = await TokenCreateContract.methods.requestCount().call();
+	const requestCount = await TokenCreateContract.methods.totalRequest().call();
 
 	for (let i = 1; i <= requestCount; i++) {
 		const request = await TokenCreateContract.methods.getRequest(i).call();
