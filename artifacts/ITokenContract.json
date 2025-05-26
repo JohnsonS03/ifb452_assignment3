@@ -49,41 +49,10 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"approveRequest(uint256,(string,bool))": "5be2218b",
 			"getRequest(uint256)": "c58343ef"
 		}
 	},
 	"abi": [
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "patientName",
-							"type": "string"
-						},
-						{
-							"internalType": "bool",
-							"name": "isApproved",
-							"type": "bool"
-						}
-					],
-					"internalType": "struct ITokenContract.RequestId",
-					"name": "",
-					"type": "tuple"
-				}
-			],
-			"name": "approveRequest",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
 		{
 			"inputs": [
 				{
