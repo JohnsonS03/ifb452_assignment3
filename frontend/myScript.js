@@ -987,7 +987,7 @@ async function updateOrganPreview() {
 
 	try {
 		const organ = await getOrgan(targetOrgan);
-		const name = organ.donerName;
+		const name = organ.donorName;
 		const date = timestampToDate(organ.dateDonated);
 		const condition = organ.condition;
 		const patient = organ.donatedTo;
