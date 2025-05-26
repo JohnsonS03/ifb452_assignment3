@@ -1098,13 +1098,13 @@ function populateOrganDropdown(organList) {
 	organList.forEach(organ => {
 		const option = document.createElement("option");
 		option.value = organ.id;
-		option.text = `${organ.id}. ${organ.donerName} (${organ.dateDonated})`;
+		option.text = `${organ.id}. ${organ.donorName} (${organ.dateDonated})`;
 		select.appendChild(option);
 	})
 	organList.forEach(organ => {
 		const option = document.createElement("option");
 		option.value = organ.id;
-		option.text = `${organ.id}. ${organ.donerName} (${organ.dateDonated})`;
+		option.text = `${organ.id}. ${organ.donorName} (${organ.dateDonated})`;
 		select1.appendChild(option);
 	})
 }
@@ -1251,7 +1251,7 @@ async function organGetter() {
 		const organ = await TokenCreateContract.methods.getOrgan(i).call();
 		const donateDate = timestampToDate(organ.dateDonated);
 
-		organList.push({ id: i, donerName: organ.donerName, dateDonated: donateDate });
+		organList.push({ id: i, donorName: organ.donorName, dateDonated: donateDate });
 		console.log();
 		console.log();
 	}
