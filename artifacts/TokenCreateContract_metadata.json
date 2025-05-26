@@ -16,7 +16,7 @@
 					{
 						"indexed": false,
 						"internalType": "string",
-						"name": "doner",
+						"name": "donor",
 						"type": "string"
 					},
 					{
@@ -150,7 +150,7 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_donerName",
+						"name": "_donorName",
 						"type": "string"
 					},
 					{
@@ -209,7 +209,7 @@
 						"components": [
 							{
 								"internalType": "string",
-								"name": "donerName",
+								"name": "donorName",
 								"type": "string"
 							},
 							{
@@ -312,7 +312,7 @@
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "donerName",
+						"name": "donorName",
 						"type": "string"
 					},
 					{
@@ -415,7 +415,7 @@
 						"components": [
 							{
 								"internalType": "string",
-								"name": "donerName",
+								"name": "donorName",
 								"type": "string"
 							},
 							{
@@ -478,7 +478,7 @@
 					"details": "This function creates an OrganId struct and stores it in the mapping of organs, incrementing both organCount and availableOrgan. It also emits an event to notify that an organ has been created.",
 					"params": {
 						"_date": "The date when this organ was donated.",
-						"_donerName": "The name of the donor who donated this organ."
+						"_donorName": "The name of the donor who donated this organ."
 					}
 				},
 				"createRequest(string,bool)": {
@@ -566,11 +566,11 @@
 	},
 	"sources": {
 		"OrganCreateContract.sol": {
-			"keccak256": "0x11aa59c7d69ba47e7deb996b4af8ee9b7165b036b54f94b0d6a09a12a7e5531a",
+			"keccak256": "0xebda7cf6230d357618d65224c8f41ad43e1497d83e18f28c81e5647d9902d1fa",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://633a9a90aca2f9488900dd42cacba0e7bb3aad6919aa9c38f950637d2b4fe177",
-				"dweb:/ipfs/QmXncQNAKWMi7oxTqKKHGbaiKkCwDHSCRYiWBXwhodD1hP"
+				"bzz-raw://13de3bc43ec9c53584cecb2cf179fb7a8b323c291a3a449927ad06fc25e9734c",
+				"dweb:/ipfs/QmafEPceS3BESH7McXtXtoNJRPKbKs5BqcEXkJJX4jMX7a"
 			]
 		}
 	},

@@ -11,59 +11,28 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					}
-				],
-				"name": "getOrgan",
-				"outputs": [
+					},
 					{
 						"components": [
 							{
 								"internalType": "string",
-								"name": "donerName",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "dateDonated",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "condition",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "donatedTo",
+								"name": "patientName",
 								"type": "string"
 							},
 							{
 								"internalType": "bool",
-								"name": "isConsented",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isEvaluated",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isStored",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isAssigned",
+								"name": "isApproved",
 								"type": "bool"
 							}
 						],
-						"internalType": "struct ITokenContract.OrganId",
+						"internalType": "struct ITokenContract.RequestId",
 						"name": "",
 						"type": "tuple"
 					}
 				],
-				"stateMutability": "view",
+				"name": "approveRequest",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -72,58 +41,29 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
-					},
+					}
+				],
+				"name": "getRequest",
+				"outputs": [
 					{
 						"components": [
 							{
 								"internalType": "string",
-								"name": "donerName",
-								"type": "string"
-							},
-							{
-								"internalType": "uint256",
-								"name": "dateDonated",
-								"type": "uint256"
-							},
-							{
-								"internalType": "string",
-								"name": "condition",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "donatedTo",
+								"name": "patientName",
 								"type": "string"
 							},
 							{
 								"internalType": "bool",
-								"name": "isConsented",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isEvaluated",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isStored",
-								"type": "bool"
-							},
-							{
-								"internalType": "bool",
-								"name": "isAssigned",
+								"name": "isApproved",
 								"type": "bool"
 							}
 						],
-						"internalType": "struct ITokenContract.OrganId",
+						"internalType": "struct ITokenContract.RequestId",
 						"name": "",
 						"type": "tuple"
 					}
 				],
-				"name": "updateOrgan",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -140,7 +80,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"EvaluateContract.sol": "ITokenContract"
+			"AvailabilityContract.sol": "ITokenContract"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -154,12 +94,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"EvaluateContract.sol": {
-			"keccak256": "0x3848e4dd6d4f47dd5051e006dcac6754ea6da273c397cb53e27f83f027d3fcb9",
+		"AvailabilityContract.sol": {
+			"keccak256": "0x9555a3e2e8b1ef22bc194b64fa58227da166d8b2d3f3e1c3402755cd70bc5496",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://757f9499ac67a8b6888b6090a09e1ef572a614b996d6cd16a2a3c436e1336015",
-				"dweb:/ipfs/QmVn5pKYgbbFYBJQS2g69mxDAGEYTadALZ1WZnAvfLqeeH"
+				"bzz-raw://f7ff4103b6b2fb37d79deeb01229f15de427bceb65d0c4a8700902dc7b5aca82",
+				"dweb:/ipfs/QmXmNrrKFPXjJnEyB63D7UYv4GMRKbYXjqgQkHWLrGTfA3"
 			]
 		}
 	},

@@ -49,72 +49,11 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"getOrgan(uint256)": "10742b51",
-			"updateOrgan(uint256,(string,uint256,string,string,bool,bool,bool,bool))": "0d47dd26"
+			"approveRequest(uint256,(string,bool))": "5be2218b",
+			"getRequest(uint256)": "c58343ef"
 		}
 	},
 	"abi": [
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				}
-			],
-			"name": "getOrgan",
-			"outputs": [
-				{
-					"components": [
-						{
-							"internalType": "string",
-							"name": "donerName",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "dateDonated",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "condition",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "donatedTo",
-							"type": "string"
-						},
-						{
-							"internalType": "bool",
-							"name": "isConsented",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isEvaluated",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isStored",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isAssigned",
-							"type": "bool"
-						}
-					],
-					"internalType": "struct ITokenContract.OrganId",
-					"name": "",
-					"type": "tuple"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
 		{
 			"inputs": [
 				{
@@ -126,53 +65,54 @@
 					"components": [
 						{
 							"internalType": "string",
-							"name": "donerName",
-							"type": "string"
-						},
-						{
-							"internalType": "uint256",
-							"name": "dateDonated",
-							"type": "uint256"
-						},
-						{
-							"internalType": "string",
-							"name": "condition",
-							"type": "string"
-						},
-						{
-							"internalType": "string",
-							"name": "donatedTo",
+							"name": "patientName",
 							"type": "string"
 						},
 						{
 							"internalType": "bool",
-							"name": "isConsented",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isEvaluated",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isStored",
-							"type": "bool"
-						},
-						{
-							"internalType": "bool",
-							"name": "isAssigned",
+							"name": "isApproved",
 							"type": "bool"
 						}
 					],
-					"internalType": "struct ITokenContract.OrganId",
+					"internalType": "struct ITokenContract.RequestId",
 					"name": "",
 					"type": "tuple"
 				}
 			],
-			"name": "updateOrgan",
+			"name": "approveRequest",
 			"outputs": [],
 			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"name": "getRequest",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "string",
+							"name": "patientName",
+							"type": "string"
+						},
+						{
+							"internalType": "bool",
+							"name": "isApproved",
+							"type": "bool"
+						}
+					],
+					"internalType": "struct ITokenContract.RequestId",
+					"name": "",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
 			"type": "function"
 		}
 	]
