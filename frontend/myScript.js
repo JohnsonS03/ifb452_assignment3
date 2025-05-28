@@ -1407,6 +1407,7 @@ async function evaluateOrgan() {
 	try {
 		await contract.methods.evaluate(organId, conditionText).send({ from });
 		removeOptionById("organSelect", organId);
+		updateAvailableDisplay();
 		console.log(`Organ ${organSelect} is evaluated with condition: ${conditionText}`);
 	} catch (err) {
 		console.error("Error occurred!", err);
